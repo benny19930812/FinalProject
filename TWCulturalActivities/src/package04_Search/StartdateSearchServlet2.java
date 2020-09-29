@@ -1,4 +1,5 @@
 package package04_Search;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -8,13 +9,18 @@ import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import javax.naming.*;
 import javax.sql.*;
 
 import org.apache.catalina.loader.WebappClassLoader;
 import org.apache.el.lang.ELArithmetic;
+
 @WebServlet("/StartdateSearchServlet2")
 public class StartdateSearchServlet2 extends HttpServlet {
 
@@ -35,18 +41,11 @@ public class StartdateSearchServlet2 extends HttpServlet {
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		List<Map> list = new ArrayList<Map>();
 		// 開始日查詢
 
 		response.setContentType(CONTENT_TYPE);
 		PrintWriter out = response.getWriter();
-		out.println("<html>");
-		out.println("<head><title>開始日查詢</title></head>");
-		out.println("<body>");
-
-		out.println("<table border=1 width=60%>");
-		out.println("<tr><th width=25%>UID</th>" + "<th width=50%>Title</th>" + "<th width=25%>Date</th><tr>");
-
 		try {
 
 			// 將request日期字串轉為date
@@ -62,17 +61,27 @@ public class StartdateSearchServlet2 extends HttpServlet {
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-EE");
 			for (ShowOj showOj : showList) {
 				String dateString = showOj.getACT_START_DATE();
-				int NOInt = showOj.getACT_NO();
+				int noint = showOj.getACT_NO();
 				String titleString = showOj.getACT_TITLE();
+				String siteString = showOj.getACT_LOCATION_NAME();
 				Date date;
 				date = sdf.parse(dateString);
 				// System.out.println(date);
 				request.getAttribute("");
 				if (date.after(requestDate)) {
-					System.out.println(date + "在" + requestDate + "之後");
-					// System.out.println(date.before(requestDate);
-					out.println("<tr><td>" + NOInt + "</td><td>" + titleString + "</td><td>"
-							+ dateFormat.format(date) + "</td></tr>");
+					Map map = new HashMap();
+					map.put("no", noint);
+					map.put("title", titleString);
+					map.put("site", siteString);
+					map.put("date", dateFormat.format(date));
+
+					// 存入map集合中
+					System.out.println(map);
+					list.add(map);// 將map集合放入list集合
+//					System.out.println("放入集合");
+					for (Map map_1 : list) {
+//						System.out.println(map_1);
+					}
 				}
 			}
 
@@ -80,9 +89,9 @@ public class StartdateSearchServlet2 extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		out.println("</body></html>");
-		out.close();
+		request.setAttribute("key_list", list);// 将list放入request中
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/04_select.jsp");
+		dispatcher.forward(request, response);
 
 	}
 }

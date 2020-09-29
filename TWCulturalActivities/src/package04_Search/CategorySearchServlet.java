@@ -67,8 +67,8 @@ public class CategorySearchServlet extends HttpServlet {
 					map.put("no", noint);			
 					map.put("title", titleString);		
 					map.put("site", siteString);							
-					//用键值对存入到map集合中
-//					System.out.println(map);
+					//存入map集合中
+					System.out.println(map);
 					list.add(map);//將map集合放入list集合
 //					System.out.println("放入集合");
 					for (Map map_1 :list) {
@@ -78,15 +78,15 @@ public class CategorySearchServlet extends HttpServlet {
 //					request.setAttribute("noint", noint);
 //					request.setAttribute("title", titleString);
 //					request.setAttribute("site", siteString);
-					request.setAttribute("cate_list",list);//将list放入request中
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/04_categorysearch.jsp");
-					dispatcher.forward(request, response);
 					
 				}
 			}
 			}catch (Exception e) {
 			// TODO: handle exception
 		}
+		request.setAttribute("key_list",list);//将list放入request中
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/04_select.jsp");
+		dispatcher.forward(request, response);
 		
 
 		

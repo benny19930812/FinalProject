@@ -52,18 +52,18 @@ public class SelectDAO  {
 				show.setACT_TITLE(rs.getString("ACT_TITLE"));
 				show.setACT_CATEGORY(rs.getInt("ACT_CATEGORY"));
 				show.setACT_LOCATION(rs.getString("ACT_LOCATION"));
-				show.setACT_LOCATION_NAME(rs.getString("lOCATION_NAME"));
-				show.setACT_ON_SALES(rs.getString("ON_SALES"));
-				show.setACT_PRICE(rs.getString("PRICE"));
+				show.setACT_LOCATION_NAME(rs.getString("ACT_lOCATION_NAME"));
+				show.setACT_ON_SALES(rs.getString("ACT_ON_SALES"));
+				show.setACT_PRICE(rs.getString("ACT_PRICE"));
 				show.setACT_TIME(rs.getString("ACT_TIME"));
-				show.setACT_END_TIME(rs.getString("END_TIME"));
-				show.setACT_MAIN_UNIT(rs.getString("MAIN_UNIT"));
-				show.setACT_SHOW_UNIT(rs.getString("SHOW_UNIT"));
+				show.setACT_END_TIME(rs.getString("ACT_ENDTIME"));
+				show.setACT_MAIN_UNIT(rs.getString("ACT_MAINUNIT"));
+				show.setACT_SHOW_UNIT(rs.getString("ACT_SHOWUNIT"));
 				show.setACT_COMMENT(rs.getString("ACT_COMMENT"));
 				show.setACT_DESCRIPTION(rs.getString("ACT_DESCRIPTION"));
 				show.setACT_IMAGE(rs.getString("ACT_IMAGE"));
-				show.setACT_START_DATE(rs.getString("START_DATE"));
-				show.setACT_END_DATE(rs.getString("END_DATE"));
+				show.setACT_START_DATE(rs.getString("ACT_STARTDATE"));
+				show.setACT_END_DATE(rs.getString("ACT_ENDDATE"));
 				lists.add(show);
 				}
 		} catch (SQLException e) {
@@ -73,5 +73,30 @@ public class SelectDAO  {
 		return lists;
 	}
 
-
+////模糊查詢
+//	public List<ShowOj> searchAllList(String queryVal) {
+//		//實作一個arrylist，list為介面
+//		List<ShowOj> lists2 = new ArrayList<ShowOj>();
+//		String query = "SELECT ACT_NO,ACT_TITLE,ACT_LOCATION_NAME FROM MAINTABLE " + "WHERE ACT_TITLE LIKE \'%" + queryVal + "%\'";
+//		try (
+//				Connection conn = getDataSource().getConnection();
+//				Statement stmt = conn.createStatement();
+//				ResultSet rs = stmt.executeQuery(query)) {
+//				//用setxxx將值放入 方便之後用getxxx取值(之後就不用寫SQL語法)
+//			while (rs.next()) {
+//				ShowOj show = new ShowOj(); //建一個show物件，ShowOj只是藍圖沒有物件
+//				show.setACT_NO(rs.getInt("ACT_NO"));
+//				show.setACT_UID(rs.getString("ACT_UID"));				
+//				show.setACT_TITLE(rs.getString("ACT_TITLE"));
+//				lists2.add(show);
+//				}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//			throw new RuntimeException(e);
+//		}
+//		return lists2;
+//	}	
+	
+	
+	
 }

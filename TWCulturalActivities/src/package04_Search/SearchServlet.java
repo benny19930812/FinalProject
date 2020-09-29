@@ -38,16 +38,25 @@ public class SearchServlet extends HttpServlet {
 		
 		String queryVal = request.getParameter("queryVal");
 		String querysite = request.getParameter("site");
+		String queryCate = request.getParameter("category");		
 		String querystartdate = request.getParameter("startdate");
 		String queryenddate = request.getParameter("enddate");
 		
-		request.getRequestDispatcher("/SearchAllServlet").forward(request, response);	
+//		request.getRequestDispatcher("/SearchAllServlet2").forward(request, response);	
+//		request.getRequestDispatcher("/CategorySearchServlet").forward(request, response);	
+//		request.getRequestDispatcher("/SiteSearchServlet2").forward(request, response);	
+//		request.getRequestDispatcher("/StartdateSearchServlet2").forward(request, response);	
+		request.getRequestDispatcher("/EndSearchServlet2").forward(request, response);	
 
 //		if (queryVal!=null) {	
-//			
+//			request.getRequestDispatcher("/SearchAllServlet2").forward(request, response);	
 //		}
 //		else if (querysite!=null) {
-//			request.getRequestDispatcher("/SiteSearchServlet").forward(request, response);	
+//			request.getRequestDispatcher("/SiteSearchServlet2").forward(request, response);	
+//			
+//		}
+//		else if (queryCate!=null) {
+//			request.getRequestDispatcher("/CategorySearchServlet").forward(request, response);	
 //			
 //		}
 //		else if (querystartdate!=null) {
