@@ -13,6 +13,7 @@
     </style>
 </head>
 <body>
+<form name="hello" action="04_Booking.jsp" method="GET">
 	節目查詢
     <table border="1">
         <tr>
