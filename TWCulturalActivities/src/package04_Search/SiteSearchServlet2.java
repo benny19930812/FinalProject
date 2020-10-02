@@ -68,9 +68,9 @@ public class SiteSearchServlet2 extends HttpServlet {
 					String no = rs.getString(1);
 					String title = rs.getString(2);
 					String site = rs.getString(3);
-					System.out.println(no);
-					System.out.println(title);		
-					System.out.println(site);		
+//					System.out.println(no);
+//					System.out.println(title);		
+//					System.out.println(site);		
 				
 					Map map = new HashMap(); 
 					map.put("no", no);			
@@ -82,7 +82,7 @@ public class SiteSearchServlet2 extends HttpServlet {
 					list.add(map);//在将map集合对象存入list集合
 					System.out.println("放入集合");
 					for (Map map_1 :list) {
-						System.out.println(map_1);
+//						System.out.println(map_1);
 					}//在打印台遍历出数据查看是否有错误
 
 				

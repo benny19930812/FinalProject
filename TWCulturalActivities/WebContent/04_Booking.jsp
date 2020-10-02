@@ -41,10 +41,11 @@
         </tr>
         <tr>
        <td>總金額</td>
-        <td ></td>
+        <td >TWD$</td>
         <td name="total" id="total" class="total">0</td>
         </tr>
     </table>
+        <input type="button" value="送出訂單" name="submit" class="submit" id="submit">
     <script src="https://code.jquery.com/jquery-3.5.1.js"
     integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </script>
@@ -54,27 +55,46 @@
         var count =0 ;
         $("#orderNum").val(count);
         $("#plus").click(function () {
-            count=count+ 1;
+        	//設定數量上限為5
+        	if (count < 5) {
+        		count++;
+            } else if (count=5 ) {
+            	count = 5;
+            }
         $("#orderNum").val(count);
-        $("#total").text("TWD$"+count*parseInt(1000))
+        $("#total").text(count*parseInt(1000)+count2*parseInt(500))
         }) 
         $("#minus").click(function () {
-            count=count- 1;
+        	//設定數量下限0
+        	if (count >0) {
+        		count--;
+            } else if (count=0 ) {
+            	count = 0;
+            }
         $("#orderNum").val(count);
-        $("#total").text("TWD$"+count*parseInt(-1000))
+        $("#total").text(count*parseInt(1000)+count2*parseInt(500))
+        return count;
         }) 
-        var count2 = 0;
-        $("#orderNum2").val(count);
+         var count2 = 0;
+        $("#orderNum2").val(count2);
         $("#plus2").click(function () {
-            count2=count2+ 1;
-        $("#orderNum2").val(count);  
-        $("#total").text("TWD$"+count*parseInt(1000)+count2*parseInt(500))
+        	if (count2 < 5) {
+        		count2++;
+            } else if (count2=5 ) {
+            	count2 = 5;
+            }
+        $("#orderNum2").val(count2);  
+        $("#total").text(count*parseInt(1000)+count2*parseInt(500))
         }) 
         $("#minus2").click(function () {
-            count2=count2- 1;
-        $("#orderNum2").val(count);
-        $("#total").text("TWD$"+count*parseInt(-1000)+count2*parseInt(-500))
-        }) 
+        	if (count2 >0) {
+        		count2--;
+            } else if (count2=0 ) {
+            	count2 = 0;
+            }
+        $("#orderNum2").val(count2);
+        $("#total").text(count*parseInt(1000)+count2*parseInt(500)) 
+        })  
     }) 
     //半票
     $(document).ready(function(){
