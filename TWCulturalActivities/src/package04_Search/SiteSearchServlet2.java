@@ -78,7 +78,7 @@ public class SiteSearchServlet2 extends HttpServlet {
 					map.put("site", site);		
 					
 					//用键值对存入到map集合中
-					System.out.println(map);
+//					System.out.println(map);
 					list.add(map);//在将map集合对象存入list集合
 					System.out.println("放入集合");
 					for (Map map_1 :list) {

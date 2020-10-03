@@ -47,13 +47,12 @@ public class SearchServlet extends HttpServlet {
 //		request.getRequestDispatcher("/SiteSearchServlet2").forward(request, response);	
 //		request.getRequestDispatcher("/StartdateSearchServlet2").forward(request, response);	
 //		request.getRequestDispatcher("/EndSearchServlet2").forward(request, response);	
-
-		if (queryVal!=null) {	
-			request.getRequestDispatcher("/SearchAllServlet2").forward(request, response);	
+		//使用.equals("")來判定字串是否相同 ==判定的是物件位址
+		if (queryVal.equals("")) {	
+			request.getRequestDispatcher("/SiteSearchServlet2").forward(request, response);				
 		}
-		else if (querysite!=null) {
-			request.getRequestDispatcher("/SiteSearchServlet2").forward(request, response);	
-			
+		else {
+			request.getRequestDispatcher("/SearchAllServlet2").forward(request, response);	
 		}
 //		else if (queryCate!=null) {
 //			request.getRequestDispatcher("/CategorySearchServlet").forward(request, response);	
