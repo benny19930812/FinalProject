@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="zh-tw">
 <head>
@@ -19,19 +22,17 @@
         }
 
         .logo {
-            float: left;
-            color: #050505;
-            border:3px solid ;
+            float: left; 
             border-radius: 10px;
             list-style-type: none;
-            font-size: 25px;
+            weight:30px;
+            height:60px;
         }
 
         .nav{
             background-color: #DDDBCB;
             float: left;
-            color: #050505;
-            
+            color: #050505;        
             border-radius: 10px;
             list-style-type: none;
             font-size: 30px;
@@ -41,8 +42,7 @@
         .nav2{
             background-color: #DDDBCB;
             float: right;
-            color: #050505;
-            
+            color: #050505;        
             border-radius: 10px;
             list-style-type: none;
             font-size: 30px;
@@ -52,10 +52,10 @@
         </style>
 </head>
    <BODY>
-   <form method=GET action="./SearchServlet">
+   
  <header id="topbar" class="topbar">
             <nav>
-                <p id="LOGO" class="logo">LOGO</p>
+                <img src="./images/logo.jpg" alt="logo" title="logo" class="logo">
                   <ul >
                     <li id="index"" class=" nav">
                        首頁
@@ -81,17 +81,25 @@
             </nav>
 
         </header><br><br>
-   <input type=SUBMIT value="音樂" onclick="<c:url value='/CategorySearchServlet' />">
-   <input type=SUBMIT value="戲劇">
-   <input type=SUBMIT value="舞蹈">
-   <input type=SUBMIT value="親子">
-   <input type=SUBMIT value="獨立音樂">
-   <input type=SUBMIT value="展覽">
-   <input type=SUBMIT value="講座">
-   <input type=SUBMIT value="電影">
-   <input type=SUBMIT value="綜藝">
-   <input type=SUBMIT value="競賽"><br><br><br>
-
+  <form method=GET action="./CategorySearchServlet"> 
+   <button name="category" type="submit" value="1">音樂</button>
+   <button name="category" type="submit" value="2">戲劇</button>
+   <button name="category" type="submit" value="3">舞蹈</button>
+   <button name="category" type="submit" value="4">親子</button>
+   <button name="category" type="submit" value="5">獨立音樂</button>
+   <button name="category" type="submit" value="6">電影</button>
+   <button name="category" type="submit" value="7">綜藝</button>
+   <button name="category" type="submit" value="8">競賽</button>
+   <button name="category" type="submit" value="11">徵選</button>
+   <button name="category" type="submit" value="13">徵選</button>
+   <button name="category" type="submit" value="14">其他</button>
+   <button name="category" type="submit" value="15">未知分類</button>
+   <button name="category" type="submit" value="16">演唱會</button>
+   <button name="category" type="submit" value="17">音樂</button>
+   <button name="category" type="submit" value="19">研習課程</button>
+   </form><br><br>
+   
+<form method=GET action="./SearchServlet">
 <!--    模糊查詢功能 -->
    <input type=TEXT name="queryVal" placeholder ="模糊查詢">
    <input type=SUBMIT value="模糊查詢"><br><br><br>

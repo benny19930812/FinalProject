@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .topbar {
+            background-color: #003C9D;
+            height: 100px;
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        .pivdiv {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .logo {
+            float: left;
+            color: azure;
+            border:3px solid ;
+            border-radius: 10px;
+            list-style-type: none;
+            font-size: 30px;
+        }
+
+        .nav{
+            float: right;
+            color: azure;
+            border:3px solid ;
+            border-radius: 10px;
+            list-style-type: none;
+            font-size: 30px;
+            margin: 10px;
+        }
+        h1{
+            font-size: 120px;
+            color: azure;
+            margin-top: 300px;
+        }
+
+        .picdiv {
+            background-image: url(images/bg2.jpg);
+            /* background-color: black ; */
+            height: 1200PX;
+        }
+
+        .article {
+            height: 3000PX;
+
+        }
+
+        .footer {
+            height: 300PX;
+            background-color: cadetblue;
+        }
+
+        .rhpic {
+            width: 100px;
+            height: 100px;
+            /* margin: 5px; */
+        }
+
+        .rhdiv {
+            width: 800px;
+            height: 120px;
+            background-color: cornsilk;
+            border-radius: 30px;
+            /* margin-top: 300px; */
+
+        }
+
+        .research {
+            width: 680px;
+            height: 100px;
+            border-radius: 30px;
+            float: left;
+        }
+
+        .butdiv {
+            width: 800px;
+            margin-left: 600px;
+        }
+
+        .button {
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+        select{
+            width: 150PX; height: 80px;
+            border-radius: 30px;
+            font-size: 30px;
+    </style>
+
+</head>
+
+<body>
+    <div id="picdiv" class="picdiv">
+        <header id="topbar" class="topbar">
+            <nav>
+                <p id="LOGO" class="logo">LOGO</p>
+                <ul>
+                    <li id="cart"" class=" nav">
+                        購物車
+                    </li>
+                    <li id="signup" class="nav">
+                        註冊
+                    </li>
+                    <li id="login" class="nav">
+                        會員登入
+                    </li>
+                </ul>
+            </nav>
+
+        </header>
+        <div id="butdiv" class="butdiv">
+            <h1>我是搜尋標題</h1>
+            <div id="rhdiv" class="rhdiv">
+                <input type="text" id="research" class="research">
+                <img src="images/research.png" alt="" id="rhpic" class="rhpic">
+
+            </div>
+            <img src="images/026-compass.png" id="button" class="button" alt="">
+            <img src="images/034-leader.png" id="but3" class="button" alt="">
+            <img src="images/date.png" id="but4" class="button" alt="">
+            <img src="images/031-goal.png" id="but2" class="button" alt="">
+            <select id="category" class="category">
+                <option value="電影">電影</option>
+                <option value="">音樂</option>
+                <option value="">鄉土</option>
+                <option value="">活動</option>
+                <option value="">想不到了</option>
+            </select>
+            <select id="site" class="site">
+                <option value="">北部地區</option>
+                <option value="">中部地區</option>
+                <option value="">南部地區</option>
+                <option value="">東部地區</option>
+                <option value="">離島地區</option>
+            </select>
+        </div>
+
+
+
+    </div>
+    <article id="article" class="article">
+
+    </article>
+    <footer id="footer" class="footer">
+        我是置底列
+    </footer>
+
+
+</body>
+
+</html>
