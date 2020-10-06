@@ -10,7 +10,7 @@
      <style>
         .topbar {
             background-color: #1B9AAA;
-            height: 100px;
+            height: 60px;
             margin: 0px;
             padding: 0px;
 
@@ -22,13 +22,17 @@
         }
 
         .logo {
-            float: left; 
+      
             border-radius: 10px;
             list-style-type: none;
-            weight:30px;
-            height:60px;
+           
+            height:100px;
         }
-
+		.search{
+		 width: 400px;
+            height: 30px;
+            
+		}
         .nav{
             background-color: #DDDBCB;
             float: left;
@@ -49,13 +53,21 @@
             margin: 10px;
             font-family: Microsoft JhengHei;
         }
+        .bodydiv{
+        height: 500PX;
+        width: 800px;
+        margin-left: 400px;
+        }
+        .footer {
+            height: 100PX;
+            background-color: #1B9AAA;
+        }
         </style>
 </head>
    <BODY>
    
  <header id="topbar" class="topbar">
             <nav>
-                <img src="./images/logo.jpg" alt="logo" title="logo" class="logo">
                   <ul >
                     <li id="index"" class=" nav">
                        首頁
@@ -80,8 +92,9 @@
                 </ul>
             </nav>
 
-        </header><br><br>
+        </header><br>
   <form method=GET action="./CategorySearchServlet"> 
+
    <button name="category" type="submit" value="1">音樂</button>
    <button name="category" type="submit" value="2">戲劇</button>
    <button name="category" type="submit" value="3">舞蹈</button>
@@ -98,11 +111,12 @@
    <button name="category" type="submit" value="17">音樂</button>
    <button name="category" type="submit" value="19">研習課程</button>
    </form><br><br>
-   
+<div class="bodydiv">
+   <img src="./images/logo.jpg" alt="logo" title="logo" class="logo"><br>
 <form method=GET action="./SearchServlet">
 <!--    模糊查詢功能 -->
-   <input type=TEXT name="queryVal" placeholder ="模糊查詢">
-   <input type=SUBMIT value="模糊查詢"><br><br><br>
+   <input type=TEXT name="queryVal" class="search" placeholder ="模糊查詢">
+   <input type=SUBMIT value="模糊查詢"><br><br>
    
    <select id="category" class="category" name="category" defult="模糊查詢">
           <option value="" selected>分類查詢</option>
@@ -157,5 +171,9 @@
 
 
 </form>
+</div>  
+ <footer id="footer" class="footer">
+        我是置底列
+    </footer>
    </BODY>	
 </HTML>

@@ -25,7 +25,7 @@ public class SelectDAO  {
 
             BasicDataSource ds = new BasicDataSource();
             ds.setDriverClassName("oracle.jdbc.OracleDriver");
-            ds.setUrl("jdbc:oracle:thin:@//localhost:1521/xepdb1");
+            ds.setUrl("jdbc:oracle:thin:@//localhost:32118/xepdb1");
             ds.setUsername("group4");
             ds.setPassword("oracle");
             ds.setMaxTotal(50); //設定最多connection上線,超過使用量必須等待
