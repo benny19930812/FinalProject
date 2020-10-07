@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Context displayName="eDM Web Application" docBase="eDMoee"
+	path="/eDMoee" reloadable="true">
+
+	<Resource name="jdbc/BookDataSQLver" type="javax.sql.DataSource"
+	username="hr" password="hr"
+	driverClassName="oracle.jdbc.OracleDriver"
+	url="jdbc:oracle:thin:@//localhost:1521/XEPDB1"
+	maxTotal="8"
+	maxIdle="4"
+	maxWaitMillis="5000"/>
+
+</Context>
