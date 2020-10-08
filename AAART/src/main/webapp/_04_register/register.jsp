@@ -13,8 +13,6 @@
             border:1px solid brown
             border-radius:15px;
             margin:0px auto;
-            margin-top: 100px;
-            
         }
         legend {
             color:	#0080FF;
@@ -47,23 +45,44 @@
  <form action="" method="post" enctype="multipart/form-data">
         
         <fieldset>
-            <legend>會員登入</legend>
+            <legend>加入會員</legend>
         <div class="st1">
-            <label class="t1" for="account1">帳號:</label>
-            <input type="text" id="account1" name="account" autocomplete="off" autofocus placeholder="guest" size="10" required>
+            <label class="t1" for="account1">帳號名稱:</label>
+            <input type="text" id="account1" name="account" autocomplete="off" autofocus placeholder="guest" size="10">
         </div>
         <div class="st1">
             <label class="t1" for="pwd1">密碼:</label>
             <input type="password" id="pwd1" name="pwd" maxlength="6" required>
-      
-
+        </div>
+        <div class="st1">
+            <label for="" class="t1">性別:</label>
+            <input type="radio" name="gender" value="male" id="m1"><label for="m1">男</label>
+            <label>
+                <input type="radio" name="gender" value="female">女
+            </label>
+            
+        </div>
+        <div class="st1">
+            <label for="" class="t1">生日:</label>
+            <input type="date" name="birth">
+        </div>
+        <div class="st1">
+            <label for="" class="t1">E-mail:</label>
+            <input type="text" name="mail" disabled>
+        </div>
+        <div class="st1">
+            <label for="" class="t1">地址:</label>
+            <input type="text" name="address" >
+        </div>
+        <div class="st1">
+            <label for="" class="t1">照片:</label>
+            <input type="file" name="file1" multiple>
+        </div>
     </fieldset><br>
         <div class="sub">
-           <input type="radio" name="remember" value="" class="remember">記住帳號密碼<br>
-             <input type="submit" value="登入">
+             <input type="submit" value="送出">
             <input type="reset" value="清除">
         </div>
-
        
 
     </form>

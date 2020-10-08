@@ -50,7 +50,7 @@ public class SearchServlet extends HttpServlet {
 			request.getRequestDispatcher("/_04_ST/SiteSearchServlet").forward(request, response);	
 		}
 		else if (!queryCate.equals("")) {
-			request.getRequestDispatcher("/_04_ST/CategorySearchServlet2").forward(request, response);			
+			request.getRequestDispatcher("/_04_ST/CategorySearchServlet").forward(request, response);			
 		}
 		else if (!querystartdate.equals("")) {
 			request.getRequestDispatcher("/_04_ST/StartdateSearchServlet").forward(request, response);			

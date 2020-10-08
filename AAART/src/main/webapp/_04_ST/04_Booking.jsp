@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-tw">
 
 <head>
     <meta charset="UTF-8">
@@ -60,7 +60,7 @@
             <td>
                 <input type="button" value="-" name="minus2" class="minus2" id="minus2">
                 <!-- <P name="orderNum" id="orderNum" class="orderNum"></P> -->
-                <input type="text" name="ordeNum2" id="orderNum2" class="orderNum" value="" >
+                <input type="text" name="orderNum2" id="orderNum2" class="orderNum" value="" >
                 <input type="button" value="+" name="plus2" class="plus2" id="plus2">
             </td>
             <td name="price" class="price" id="price" >500</td>
@@ -71,7 +71,7 @@
         </tr>
         
 
-    </table>
+    </table><br>
         <input type="submit" value="確認數量" name="submit" class="submit" id="submit">
         
     </form>
@@ -96,6 +96,7 @@
         		count++;
             } else if (count=5 ) {
             	count = 5;
+            	alert("最多訂購五張");
             }
         $("#orderNum").val(count);
         $("#total").val(count*parseInt(1000))
@@ -118,6 +119,7 @@
         		count2++;
             } else if (count2=5 ) {
             	count2 = 5;
+            	alert("最多訂購五張");
             }
         $("#orderNum2").val(count2);  
         $("#total2").val(count2*parseInt(500))
