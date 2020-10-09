@@ -26,6 +26,7 @@
 <c:set var="halfnum" value="${param.orderNum2}" scope="session"/> 
 <c:set var="total" value="${param.total}" scope="session"/> 
 <c:set var="total2" value="${param.total2}" scope="session"/> 
+<c:set var="total3" value="${param.total3}" scope="session"/> 
     <H1>訂購人資訊</H1>
 <table border="1">
         
@@ -84,6 +85,7 @@
             <td name="total2" id="total2" class="total2">${total2}</td>
             <td ><input type="button" value="刪除" name="submit" class="submit" id="submit"></td>
         </tr>
+        <tr><td>總計</td><td></td><td></td><td></td><td>${total3}</td><tr>
         
 
     </table><br>

@@ -25,6 +25,7 @@
 	 
 	<!-- 用param.取，相當於request.getParameter-->
 	<c:set var="title" value="${param.title}" scope="session"/>
+	<c:set var="actid" value="${param.actid}" scope="session"/>
     <H1>確認張數</H1>
     節目名稱:<P>${title}</P>
     節目簡介:
@@ -69,11 +70,10 @@
 			</td>
             <td ><input type="button" value="刪除" name="submit" class="submit" id="submit"></td>
         </tr>
-        
+        <tr><td>總計</td><td></td><td></td><td></td><td><input type="text" name="total3" id="total3" class="total3"value="0" readonly="readonly" /></td><tr>
 
     </table><br>
         <input type="submit" value="確認數量" name="submit" class="submit" id="submit">
-        
     </form>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
     integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -100,6 +100,7 @@
             }
         $("#orderNum").val(count);
         $("#total").val(count*parseInt(1000))
+        $("#total3").val(count*parseInt(1000)+count2*parseInt(500))
         }) 
         $("#minus").click(function () {
         	//設定數量下限0
@@ -110,6 +111,7 @@
             }
         $("#orderNum").val(count);
         $("#total").val(count*parseInt(1000))
+		$("#total3").val(count*parseInt(1000)+count2*parseInt(500))
         return count;
         }) 
          var count2 = 0;
@@ -123,6 +125,7 @@
             }
         $("#orderNum2").val(count2);  
         $("#total2").val(count2*parseInt(500))
+       	$("#total3").val(count*parseInt(1000)+count2*parseInt(500))
         }) 
         $("#minus2").click(function () {
         	if (count2 >0) {
@@ -132,11 +135,12 @@
             }
         $("#orderNum2").val(count2);
         $("#total2").val(count2*parseInt(500)) 
-        })  
+        $("#total3").val(count*parseInt(1000)+count2*parseInt(500))
+        }) 
+
     }) 
     //半票
-    $(document).ready(function(){
-    }) 
+
     </script>
 
 </body>

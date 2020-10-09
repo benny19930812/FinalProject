@@ -53,7 +53,7 @@
                        分類
                     </li>
                     <li id="order" class="nav">
-                       訂單
+                       <a href="<c:url value='/_04_Orderlist/SearchOrderlist.jsp'/>" target="" title="">訂單</a>
                     </li>
                 </ul>
                 <ul>

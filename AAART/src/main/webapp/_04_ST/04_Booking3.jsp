@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+ <%request.setCharacterEncoding("UTF-8");%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="zh-tw">
@@ -28,7 +29,7 @@
 <c:set var="add" value="${param.add}" scope="session"/> 
     <H1>送出訂單</H1>
     <table border="1">
-        
+        ${name}
         <tr>
             <td>訂購人姓名
             </td>
@@ -84,17 +85,30 @@
             <td name="total2" id="total2" class="total2">${total2}</td>
             <td ><input type="button" value="刪除" name="submit" class="submit" id="submit"></td>
         </tr>
-        
+        <tr><td>總計</td><td></td><td></td><td></td><td>${total3}</td><tr>
 
     </table><br>
-        <input type="submit" value="送出訂單" name="submit" class="submit" id="submit">
     </form>
+          <input type="submit" value="送出訂單" name="1" class="1" id="1">  
+         
     
-<script src="https://code.jquery.com/jquery-3.5.1.js"
+<!-- <script src="js\jquery-3.5.1.min.js"></script> -->
+ <script src="https://code.jquery.com/jquery-3.5.1.js"
     integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </script>
+</script>
     <script>
-       
+
+    $("#1").click(function () {
+    	if (confirm("再次確認訂單內容 ? ")) {
+//     		window.location ="./_04_Orderlist/OrderlistServlet" 
+    		window.location ="<c:url value='/_04_Orderlist/OrderlistServlet'/>" 
+    	} else {
+    		return false;
+    	}
+    	
+    })
+
     </script>
 
 </body>

@@ -78,10 +78,6 @@ public class CategorySearchServlet extends HttpServlet {
 //						System.out.println(map_1);
 					}
 
-//					request.setAttribute("noint", noint);
-//					request.setAttribute("title", titleString);
-//					request.setAttribute("site", siteString);
-
 				}
 			}
 			String p = request.getParameter("page");

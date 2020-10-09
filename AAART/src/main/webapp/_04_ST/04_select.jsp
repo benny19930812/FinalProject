@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-	<jsp:include page="/_04_ST\04_topbar.jsp" />
+	<jsp:include page="/_04_ST/04_topbar.jsp" />
 	節目查詢
 
 	<c:set var="totalnum" value="${requestScope.totalnum}"/>
@@ -45,6 +45,7 @@
 				<td>${show.no}</td><td>${show.title}</td><td>${show.site}</td><td>${show.date}</td><td><input type=SUBMIT value="購買"></td>
 				<!-- 這些隱藏欄位都會送到後端 -->
  				<Input type='hidden' name='title' value='${show.title}'>
+ 				<Input type='hidden' name='actid' value='${show.no}'>
 
 			</form>
 			</tr>

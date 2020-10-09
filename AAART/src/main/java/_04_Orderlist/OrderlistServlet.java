@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,6 +40,7 @@ public class OrderlistServlet extends HttpServlet {
 //		HttpSession session = request.getSession(false);
 		
 		try {
+			String ACT_ID = (String) request.getSession().getAttribute("actid");
 			String NAME = (String) request.getSession().getAttribute("name");
 			String EMAIL = (String) request.getSession().getAttribute("email");
 			String TEL = (String) request.getSession().getAttribute("tel");
@@ -46,23 +48,22 @@ public class OrderlistServlet extends HttpServlet {
 			String TITLE = (String) request.getSession().getAttribute("title");
 			int HALF_NUM = Integer.parseInt((String) request.getSession().getAttribute("halfnum"));			
 			int ADULT_NUM = Integer.parseInt((String) request.getSession().getAttribute("adultnum"));
-			int TOTALPRICE = Integer.parseInt((String) request.getSession().getAttribute("total"));
+			int TOTALPRICE = Integer.parseInt((String) request.getSession().getAttribute("total3"));
 			
-			System.out.println(NAME);
-			System.out.println(EMAIL);
-			System.out.println(TEL);
-			System.out.println(ADDRESS);
-			System.out.println(TITLE);
-			System.out.println(HALF_NUM);
-			System.out.println(ADULT_NUM);
-			System.out.println(TOTALPRICE);
+			
 			
 			OrderListDAO orderListDAO =new OrderListDAO();
+			//建立orderListDAO物件
+			
+			
 			Orderlistbean orderlist = new Orderlistbean();
-			orderListDAO.addlist(orderlist);
-			orderlist.setORDERID("0001");
-			orderlist.setACT_ID("AAAA");
+			//建立orderlist物件
+			String ORDERID =orderListDAO.getOrderIdByTime();
+			//建立物件 . 來調用方法
+			
+			orderlist.setORDERID(ORDERID);
 			orderlist.setNAME(NAME);
+			orderlist.setACT_ID(ACT_ID);			
 			orderlist.setEMAIL(EMAIL);
 			orderlist.setTEL(TEL);
 			orderlist.setADDRESS(ADDRESS);
@@ -70,17 +71,21 @@ public class OrderlistServlet extends HttpServlet {
 			orderlist.setHALF_NUM(HALF_NUM);
 			orderlist.setADULT_NUM(ADULT_NUM);
 			orderlist.setTOTALPRICE(TOTALPRICE);
+			orderListDAO.addlist(orderlist);
 			
 			PrintWriter out = response.getWriter();
 	        System.out.println("訂單已成立");
-			out.println("訂單已成立");
+	        
 			
+	        request.setAttribute("orderid", ORDERID);
 
 			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}	
-
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/_04_Orderlist/ThxOrder.jsp");
+		dispatcher.forward(request, response);
+		
 	}
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType(CONTENT_TYPE);

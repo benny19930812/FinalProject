@@ -5,8 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
+
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 import _04_Orderlist.*;
@@ -38,7 +42,7 @@ public class OrderListDAO {
 	//void 代表什麼都不返回，即無return
 	//建立一個addlist
 	//Orderlistbean類別的物件-orderlist ex int 5
-	public  void addlist(Orderlistbean orderlist) {
+	public Orderlistbean addlist(Orderlistbean orderlist) {
 		
 		System.out.println("進入方法");
 		String liString = "INSERT INTO ORDERLIST (ORDERID,NAME,EMAIL,TEL,ADDRESS,ACT_ID,TITLE,HALF_NUM,ADULT_NUM,TOTALPRICE) VALUES (?,?,?,?,?,?,?,?,?,?)";
@@ -57,7 +61,8 @@ public class OrderListDAO {
 				pstmt.setInt(9, orderlist.getADULT_NUM());
 				pstmt.setInt(10, orderlist.getTOTALPRICE());
 				pstmt.executeUpdate();
-
+				System.out.println("已插入");
+				return orderlist;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new RuntimeException(e);
@@ -65,13 +70,13 @@ public class OrderListDAO {
 	}
 	
 	//建一個showlist方法，類型為list
-		public List<Orderlistbean> Orderlist() {
+		public List<Orderlistbean> GetOrderlist() {
 			//實作一個arrylist，list為介面
 			List<Orderlistbean> orderlists = new ArrayList<Orderlistbean>();
 			try (
 					Connection conn = getDataSource().getConnection();
 					Statement stmt = conn.createStatement();
-					ResultSet rs = stmt.executeQuery("select * ORDERLIST ")) {
+					ResultSet rs = stmt.executeQuery("select * FROM ORDERLIST ")) {
 					//取得所有table內資料 
 					//用setxxx將值放入 方便之後用getxxx取值(之後就不用寫SQL語法)
 				while (rs.next()) {
@@ -88,12 +93,31 @@ public class OrderListDAO {
 					orderlistbean.setTOTALPRICE(rs.getInt("TOTALPRICE"));
 					orderlists.add(orderlistbean);
 					}
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 				throw new RuntimeException(e);
 			}
 			return orderlists;
 		}
-	
-
+		
+		
+		
+		
+		//訂單編號生成
+		public  String getOrderIdByTime() {
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+			String newDate = sdf.format(new Date());
+			String result = "";
+			Random random = new Random();
+			for (int i = 0; i < 3; i++) {
+				result += random.nextInt(10);
+			}
+			return newDate + result;
+	}
+		
+		
+		
+		
+		
 }
