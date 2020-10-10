@@ -26,41 +26,9 @@
 <form name="order2" action="<c:url value='/_04_Orderlist/OrderlistServlet'/> " method="get">
 
 	<jsp:include page="/_04_ST/04_topbar.jsp" />
-<c:set var="name" value="${param.name}" scope="session"/> 
-<c:set var="email" value="${param.email}" scope="session"/> 
-<c:set var="tel" value="${param.tel}" scope="session"/> 
-<c:set var="add" value="${param.add}" scope="session"/> 
-    <H1>送出訂單</H1>
- <table border="1">
-        
-        <tr>
-            <td>訂購人姓名
-            </td>
-            <td>
-             <input type="text" name="name" value="">
-        </tr>
-        <tr>
-            <td>電子郵件
-            </td>
-            <td>
-             <input type="text" name="email" value="">
-             </td>
-        </tr>
-        <tr>
-            <td>電話
-            </td>
-            <td>
-             <input type="text" name="tel">
-            </td>
-        </tr>
-        <tr>
-            <td>地址
-            </td>
-            <td>
-             <input type="text" name="add">
-            </td>
-        </tr>
-     </table><br><br> <br>  
+<%-- <c:set var="add" value="${param.add}" scope="session"/>  --%>
+    <H1>購物車</H1>
+ 
 
       <table border="1">  
         
@@ -72,6 +40,7 @@
             <td>總價</td>
             <td>操作</td>
         </tr>
+       
         <%--使用JSTL 執行for loop ${show.no}取map內value --%>
         <c:forEach items="${cartlist}" var="show" varStatus="idx">
         <tr>
@@ -82,13 +51,11 @@
             <td>全票</td>
              <td>
                 <input type="button" value="-" name="minus" class="minus" id="minus">
-                <!-- <P name="orderNum" id="orderNum" class="orderNum"></P> -->
                 <input type="text" name="adultnum" id="adultnum" class="adultnum" value="${show.adultnum}" >
                 <input type="button" value="+" name="plus" class="plus" id="plus">
             </td>
            <td name="price" class="price" id="price" >1000</td>
             <td><input type="text" name="total1" id="total1" class="total1"value="${show.total1}" readonly="readonly" /></td>
-<%--             <td name="total1" id="total1" class="total1">${show.total1}</td> --%>
             <td ><input type="button" value="刪除" name="submit" class="submit" id="submit"></td>
          </tr>
          <tr>
@@ -103,7 +70,6 @@
             
             <td name="price" class="price" id="price" >500</td>
             <td><input type="text" name="total2" id="total2" class="total2"value="${show.total2}" readonly="readonly" /></td>
-<%--             <td name="total2" id="total2" class="total2">${show.total2}</td> --%>
             <td ><input type="button" value="刪除" name="submit" class="submit" id="submit"></td>
 
         </tr>
@@ -123,8 +89,7 @@
  <script src="https://code.jquery.com/jquery-3.5.1.js"
     integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </script>
-</script>
-<script>
+    <script>
         //全票
         $(document).ready(function(){
         	/* 價格顯示 */
@@ -134,7 +99,7 @@
         		}); */
 
         	
-        	var count =0 ;
+ 
         $("#adultnum").val(count);
         $("#plus").click(function () {
         	//設定數量上限為5
@@ -160,7 +125,7 @@
 		$("#total3").val(count*parseInt(1000)+count2*parseInt(500))
         return count;
         }) 
-         var count2 = 0;
+ 
         $("#halfnum").val(count2);
         $("#plus2").click(function () {
         	if (count2 < 5) {
@@ -188,7 +153,6 @@
     //半票
 
     </script>
-
 </body>
 
 </html>

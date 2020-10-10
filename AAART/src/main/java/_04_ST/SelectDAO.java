@@ -27,11 +27,10 @@ public class SelectDAO {
 	// 設定oracle連線方法
 	public DataSource getDataSource() {
 		if (dataSource == null) {
-
+			System.out.println("進入連線");
 			BasicDataSource ds = new BasicDataSource();
 			ds.setDriverClassName("oracle.jdbc.OracleDriver");
 			//mac jdbcport
-			//ds.setUrl("jdbc:oracle:thin:@//localhost:32118/xepdb1");
 			ds.setUrl("jdbc:oracle:thin:@//localhost:1521/xepdb1");
 			ds.setUsername("group4");
 			ds.setPassword("oracle");
@@ -79,6 +78,40 @@ public class SelectDAO {
 		}
 		return lists;
 	}
-
+////模糊查詢
+//	//建一個showlist方法，類型為list
+//		public List<ShowOj> getSearchlist() {
+//			//實作一個arrylist，list為介面
+//			List<ShowOj> lists = new ArrayList<ShowOj>();
+//			String query = "SELECT ACT_NO,ACT_TITLE,ACT_LOCATION_NAME FROM MAINTABLE " + "WHERE ACT_TITLE LIKE \'%" + "?" + "%\'";
+//			try (
+//					Connection conn = ds.getConnection();
+//					Statement stmt = conn.createStatement();
+//					ResultSet rs = stmt.executeQuery(query);
+//					) {
+//					//取得所有table內資料 
+//					//用setxxx將值放入 方便之後用getxxx取值(之後就不用寫SQL語法)
+////				request.setAttribute("RS", rs);
+////				RequestDispatcher dispatcher = request.getRequestDispatcher("/04_select.jsp");
+////				dispatcher.forward(request, response);
+//				
+//				for (int count = 0;; count++) {
+//					if (rs.next()) {
+//						String no = rs.getString(1);
+//						String title = rs.getString(2);
+//						String site = rs.getString(3);
+//						System.out.println(no);
+//						System.out.println(title);		
+//						System.out.println(site);		
+//					
+//					lists.add();
+//					}
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//				throw new RuntimeException(e);
+//			}
+//			return lists;
+//		}	
+//	
 
 }

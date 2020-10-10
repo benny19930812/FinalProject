@@ -12,7 +12,10 @@
             width: 100px;
         }
 
-        .orderNum {
+        .halfnum {
+            width: 30px;
+        }
+        .adultnum {
             width: 30px;
         }
     </style>
@@ -21,11 +24,12 @@
 <body>
 	<jsp:include page="/_04_ST/04_topbar.jsp" />
 	
-	 <form name="order" action="./04_Booking2.jsp " method="post">
+	 <form name="order" action="<c:url value='/_04_ShopCart/ShopCartServlet'/>" method="post">
 	 
 	<!-- 用param.取，相當於request.getParameter-->
 	<c:set var="title" value="${param.title}" scope="session"/>
-	<c:set var="actid" value="${param.actid}" scope="session"/>
+	<c:set var="actid" value="${param.actid}" />
+<%-- 	<c:set var="actid" value="${param.actid}" scope="session"/> --%>
     <H1>確認張數</H1>
     節目名稱:<P>${title}</P>
     節目簡介:
@@ -44,16 +48,16 @@
             <td>
                 <input type="button" value="-" name="minus" class="minus" id="minus">
                 <!-- <P name="orderNum" id="orderNum" class="orderNum"></P> -->
-                <input type="text" name="orderNum" id="orderNum" class="orderNum" value="" >
+                <input type="text" name="adultnum" id="adultnum" class="adultnum" value="" >
                 <input type="button" value="+" name="plus" class="plus" id="plus">
             </td>
 
             <td name="price" class="price" id="price" >1000</td>
             <td>
-			<input type="text" name="total" id="total" class="total"value="0" readonly="readonly" />
+			<input type="text" name="total1" id="total1" class="total1"value="0" readonly="readonly" />
 			</td>
 
-            <td ><input type="button" value="刪除" name="submit" class="submit" id="submit"></td>
+            <td ><input type="button" value="加入購物車" name="submit" class="submit" id="submit"></td>
         </tr>
         <tr>
             <td>${title}</td>
@@ -61,14 +65,14 @@
             <td>
                 <input type="button" value="-" name="minus2" class="minus2" id="minus2">
                 <!-- <P name="orderNum" id="orderNum" class="orderNum"></P> -->
-                <input type="text" name="orderNum2" id="orderNum2" class="orderNum" value="" >
+                <input type="text" name="halfnum" id="halfnum" class="halfnum" value="" >
                 <input type="button" value="+" name="plus2" class="plus2" id="plus2">
             </td>
             <td name="price" class="price" id="price" >500</td>
                <td>
-			<input type="text" name="total2" id="total2" class="total"value="0" readonly="readonly" />
+			<input type="text" name="total2" id="total2" class="total2"value="0" readonly="readonly" />
 			</td>
-            <td ><input type="button" value="刪除" name="submit" class="submit" id="submit"></td>
+            <td ><input type="button" value="加入購物車" name="submit" class="submit" id="submit"></td>
         </tr>
         <tr><td>總計</td><td></td><td></td><td></td><td><input type="text" name="total3" id="total3" class="total3"value="0" readonly="readonly" /></td><tr>
 
@@ -89,7 +93,7 @@
 
         	
         	var count =0 ;
-        $("#orderNum").val(count);
+        $("#adultnum").val(count);
         $("#plus").click(function () {
         	//設定數量上限為5
         	if (count < 5) {
@@ -98,8 +102,8 @@
             	count = 5;
             	alert("最多訂購五張");
             }
-        $("#orderNum").val(count);
-        $("#total").val(count*parseInt(1000))
+        $("#adultnum").val(count);
+        $("#total1").val(count*parseInt(1000))
         $("#total3").val(count*parseInt(1000)+count2*parseInt(500))
         }) 
         $("#minus").click(function () {
@@ -109,13 +113,13 @@
             } else if (count=0 ) {
             	count = 0;
             }
-        $("#orderNum").val(count);
-        $("#total").val(count*parseInt(1000))
+        $("#adultnum").val(count);
+        $("#total1").val(count*parseInt(1000))
 		$("#total3").val(count*parseInt(1000)+count2*parseInt(500))
         return count;
         }) 
          var count2 = 0;
-        $("#orderNum2").val(count2);
+        $("#halfnum").val(count2);
         $("#plus2").click(function () {
         	if (count2 < 5) {
         		count2++;
@@ -123,7 +127,7 @@
             	count2 = 5;
             	alert("最多訂購五張");
             }
-        $("#orderNum2").val(count2);  
+        $("#halfnum").val(count2);  
         $("#total2").val(count2*parseInt(500))
        	$("#total3").val(count*parseInt(1000)+count2*parseInt(500))
         }) 
@@ -133,7 +137,7 @@
             } else if (count2=0 ) {
             	count2 = 0;
             }
-        $("#orderNum2").val(count2);
+        $("#halfnum").val(count2);
         $("#total2").val(count2*parseInt(500)) 
         $("#total3").val(count*parseInt(1000)+count2*parseInt(500))
         }) 

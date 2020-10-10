@@ -62,34 +62,33 @@ public class SearchAllServlet extends HttpServlet {
 		
 
 		
-		String query = "SELECT ACT_NO,ACT_TITLE,ACT_LOCATION_NAME FROM MAINTABLE " + "WHERE ACT_TITLE LIKE \'%" + queryVal + "%\'";
-//    System.out.println(query);     
 		response.setContentType(CONTENT_TYPE);
 		PrintWriter out = response.getWriter();
 
+		String query = "SELECT ACT_NO,ACT_TITLE,ACT_LOCATION_NAME FROM MAINTABLE " + "WHERE ACT_TITLE LIKE \'%" + queryVal + "%\'";
+	
 		try {
 			Connection conn = ds.getConnection();
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
-//			request.setAttribute("RS", rs);
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("/04_select.jsp");
-//			dispatcher.forward(request, response);
+//			連接jdbc
 			
 			for (int count = 0;; count++) {
 				if (rs.next()) {
 					String no = rs.getString(1);
 					String title = rs.getString(2);
 					String site = rs.getString(3);
-//					System.out.println(no);
-//					System.out.println(title);		
-//					System.out.println(site);		
+					System.out.println(no);
+					System.out.println(title);		
+					System.out.println(site);		
 				
 					Map map = new HashMap(); 
 					map.put("no", no);			
 					map.put("title", title);		
 					map.put("site", site);		
+
 					
-					//用键值对存入到map集合中
+//					用键值对存入到map集合中
 //					System.out.println(map);
 					list.add(map);//在将map集合对象存入list集合
 //					System.out.println("放入集合");
@@ -147,11 +146,12 @@ public class SearchAllServlet extends HttpServlet {
 			request.setAttribute("startdate", querystartdate);
 			request.setAttribute("enddate", queryenddate);
 			
-		} catch (SQLException se) {
+			request.setAttribute("key_list",list);//将list集合数据放入到request中共享
+			request.getRequestDispatcher("/_04_ST/04_select.jsp").forward(request, response);
+			out.close();
+		}
+		catch (SQLException se) {
 			se.printStackTrace(out);
 		}
-		request.setAttribute("key_list",list);//将list集合数据放入到request中共享
-		request.getRequestDispatcher("/_04_ST/04_select.jsp").forward(request, response);
-		out.close();
 	}
 }

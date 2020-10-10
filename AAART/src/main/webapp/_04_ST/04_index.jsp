@@ -28,10 +28,9 @@
 		width:100pX;
 		}
         .bodydiv{
-        height: 500PX;
-        width: 800px;
-        margin-left: 300px;
-        margin-top: 100px;
+		 height: 800px;
+         margin-left: 300px; 
+         margin-top: 100px;
         
         }
         .footer {
@@ -71,6 +70,7 @@
    </form>
    
    
+
 <div class="bodydiv">
    <img src="./images/logo.jpg" alt="logo" title="logo" class="logo"><br>
 <form method=GET action="./SearchServlet">
@@ -136,6 +136,7 @@
 
 </form>
 </div>  
+
  <footer id="footer" class="footer">
         我是置底列
     </footer>

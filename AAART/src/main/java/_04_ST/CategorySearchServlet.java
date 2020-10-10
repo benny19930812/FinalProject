@@ -114,8 +114,7 @@ public class CategorySearchServlet extends HttpServlet {
 			request.setAttribute("site", querysite);
 			request.setAttribute("startdate", querystartdate);
 			request.setAttribute("enddate", queryenddate);
-
-
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			int listsize = list.size();

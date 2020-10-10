@@ -48,7 +48,7 @@ public class SiteSearchServlet extends HttpServlet {
 
 		List<Map> list =new ArrayList<Map>();
 		
-		// Searchall
+		// Searchsite
 		String queryVal = request.getParameter("queryVal");
 		System.out.println(queryVal);
 		String querysite = request.getParameter("site");

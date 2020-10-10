@@ -26,7 +26,7 @@ public class OrderListDAO {
 	// 設定oracle連線方法
 	public DataSource getDataSource() {
 		if (dataSource == null) {
-
+			System.out.println("進入連線");
 			BasicDataSource ds = new BasicDataSource();
 			ds.setDriverClassName("oracle.jdbc.OracleDriver");
 			ds.setUrl("jdbc:oracle:thin:@//localhost:1521/xepdb1");

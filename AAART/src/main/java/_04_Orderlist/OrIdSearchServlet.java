@@ -77,11 +77,11 @@ public class OrIdSearchServlet extends HttpServlet {
 					map.put("adultnum",adultnum);
 					map.put("totalprice", totalprice);
 					// 存入map集合中
-					System.out.println(map);
+//					System.out.println(map);
 					orderlist.add(map);// 將map集合放入list集合
 //					System.out.println("放入集合");
 					for (Map map_1 : orderlist) {
-						System.out.println(map_1);
+//						System.out.println(map_1);
 					}
 
 				}
