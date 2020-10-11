@@ -74,6 +74,7 @@ public class EnddateSearchServlet extends HttpServlet {
 				int noint = showOj.getACT_NO();
 				String titleString = showOj.getACT_TITLE();
 				String siteString = showOj.getACT_LOCATION_NAME();
+				String description = showOj.getACT_DESCRIPTION();
 				Date date;
 				date = sdf.parse(dateString);
 				// System.out.println(date);
@@ -83,6 +84,7 @@ public class EnddateSearchServlet extends HttpServlet {
 					map.put("no", noint);
 					map.put("title", titleString);
 					map.put("site", siteString);
+					map.put("description", description);
 					map.put("date", dateFormat.format(date));
 
 					// 存入map集合中

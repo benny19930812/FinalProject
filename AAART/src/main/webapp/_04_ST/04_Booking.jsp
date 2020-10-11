@@ -29,10 +29,11 @@
 	<!-- 用param.取，相當於request.getParameter-->
 	<c:set var="title" value="${param.title}" scope="session"/>
 	<c:set var="actid" value="${param.actid}" />
+	<c:set var="description" value="${param.description}" />
 <%-- 	<c:set var="actid" value="${param.actid}" scope="session"/> --%>
     <H1>確認張數</H1>
     節目名稱:<P>${title}</P>
-    節目簡介:
+    節目簡介:<P>${description}</P>
     <table border="1">
         <tr>
             <td>節目名稱</td>
@@ -47,7 +48,6 @@
             <td>全票</td>
             <td>
                 <input type="button" value="-" name="minus" class="minus" id="minus">
-                <!-- <P name="orderNum" id="orderNum" class="orderNum"></P> -->
                 <input type="text" name="adultnum" id="adultnum" class="adultnum" value="" >
                 <input type="button" value="+" name="plus" class="plus" id="plus">
             </td>
@@ -81,7 +81,7 @@
     </form>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
     integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-</script>
+
     <script>
         //全票
         $(document).ready(function(){

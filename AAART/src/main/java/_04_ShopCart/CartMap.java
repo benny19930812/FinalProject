@@ -10,10 +10,8 @@ import java.util.Map;
 
 
 public class CartMap {
-	public HashMap<String,CartBean> cartMap=new HashMap<String,CartBean>();
-	List<CartBeana>
+
 	
-}
 
 
 	

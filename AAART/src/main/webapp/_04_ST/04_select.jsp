@@ -15,7 +15,6 @@
 <body>
 	<jsp:include page="/_04_ST/04_topbar.jsp" />
 	節目查詢
-
 	<c:set var="totalnum" value="${requestScope.totalnum}"/>
     <c:set var="PerPage" value="${requestScope.PerPage}"/>
     <c:set var="totalPages" value="${requestScope.totalPages}"/>
@@ -46,6 +45,7 @@
 				<!-- 這些隱藏欄位都會送到後端 -->
  				<Input type='hidden' name='title' value='${show.title}'>
  				<Input type='hidden' name='actid' value='${show.no}'>
+ 				<Input type='hidden' name='description' value='${show.description}'>
 
 			</form>
 			</tr>

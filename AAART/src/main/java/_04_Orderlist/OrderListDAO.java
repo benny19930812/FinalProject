@@ -18,6 +18,7 @@ import _04_ST.ShowOj;
 
 
 public class OrderListDAO {
+	
  	private DataSource dataSource;
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
@@ -38,14 +39,14 @@ public class OrderListDAO {
 		}
 		return dataSource;
 	}
-
+	
 	//void 代表什麼都不返回，即無return
 	//建立一個addlist
 	//Orderlistbean類別的物件-orderlist ex int 5
-	public Orderlistbean addlist(Orderlistbean orderlist) {
+	public Orderlistbean addUser(Orderlistbean orderlist) {
 		
 		System.out.println("進入方法");
-		String liString = "INSERT INTO ORDERLIST (ORDERID,NAME,EMAIL,TEL,ADDRESS,ACT_ID,TITLE,HALF_NUM,ADULT_NUM,TOTALPRICE) VALUES (?,?,?,?,?,?,?,?,?,?)";
+		String liString = "INSERT INTO ORDERLIST (ORDERID,NAME,EMAIL,TEL,ADDRESS,TOTALPRICE) VALUES (?,?,?,?,?,?)";
 		try (
 				Connection conn = getDataSource().getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(liString);
@@ -55,11 +56,7 @@ public class OrderListDAO {
 				pstmt.setString(3, orderlist.getEMAIL());
 				pstmt.setString(4, orderlist.getTEL());
 				pstmt.setString(5, orderlist.getADDRESS());
-				pstmt.setString(6, orderlist.getACT_ID());
-				pstmt.setString(7, orderlist.getTITLE());
-				pstmt.setInt(8, orderlist.getHALF_NUM());
-				pstmt.setInt(9, orderlist.getADULT_NUM());
-				pstmt.setInt(10, orderlist.getTOTALPRICE());
+				pstmt.setInt(6, orderlist.getTOTALPRICE());
 				pstmt.executeUpdate();
 				System.out.println("已插入");
 				return orderlist;
@@ -69,8 +66,34 @@ public class OrderListDAO {
 		}
 	}
 	
+	
+	//void 代表什麼都不返回，即無return
+	//建立一個addlist
+	//Orderlistbean類別的物件-orderlist ex int 5
+	public Orderlistbean addlist(Orderlistbean orderlistbean) {
+		
+		System.out.println("進入方法");
+		String liString = "INSERT INTO ORDERNUM (ORDERID,TITLE,HALFNUM,ADULTNUM,TOTALPRICE) VALUES (?,?,?,?,?)";
+		try (
+				Connection conn = getDataSource().getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(liString);
+				) {
+				pstmt.setString(1, orderlistbean.getORDERID());
+				pstmt.setString(2, orderlistbean.getTITLE());
+				pstmt.setInt(3, orderlistbean.getHALF_NUM());
+				pstmt.setInt(4, orderlistbean.getADULT_NUM());
+				pstmt.setInt(5, orderlistbean.getTOTALPRICE());
+				pstmt.executeUpdate();
+				System.out.println("已插入");
+				return orderlistbean;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+	
 	//建一個showlist方法，類型為list
-		public List<Orderlistbean> GetOrderlist() {
+		public List<Orderlistbean> GetOrderUser() {
 			//實作一個arrylist，list為介面
 			List<Orderlistbean> orderlists = new ArrayList<Orderlistbean>();
 			try (
@@ -86,10 +109,6 @@ public class OrderListDAO {
 					orderlistbean.setEMAIL(rs.getString("EMAIL"));
 					orderlistbean.setTEL(rs.getString("TEL"));
 					orderlistbean.setADDRESS(rs.getString("ADDRESS"));
-					orderlistbean.setACT_ID(rs.getString("ACT_ID"));
-					orderlistbean.setTITLE(rs.getString("TITLE"));
-					orderlistbean.setHALF_NUM(rs.getInt("HALF_NUM"));
-					orderlistbean.setADULT_NUM(rs.getInt("ADULT_NUM"));
 					orderlistbean.setTOTALPRICE(rs.getInt("TOTALPRICE"));
 					orderlists.add(orderlistbean);
 					}
@@ -101,6 +120,33 @@ public class OrderListDAO {
 			return orderlists;
 		}
 		
+		
+		//建一個showlist方法，類型為list
+				public List<Orderlistbean> GetOrderlist() {
+					//實作一個arrylist，list為介面
+					List<Orderlistbean> orderlists = new ArrayList<Orderlistbean>();
+					try (
+							Connection conn = getDataSource().getConnection();
+							Statement stmt = conn.createStatement();
+							ResultSet rs = stmt.executeQuery("select * FROM ORDERNUM ")) {
+							//取得所有table內資料 
+							//用setxxx將值放入 方便之後用getxxx取值(之後就不用寫SQL語法)
+						while (rs.next()) {
+							Orderlistbean orderlistbean = new Orderlistbean(); //建一個show物件，ShowOj只是藍圖沒有物件
+							orderlistbean.setORDERID(rs.getString("ORDERID"));
+							orderlistbean.setTITLE(rs.getString("TITLE"));
+							orderlistbean.setHALF_NUM(rs.getInt("HALFNUM"));
+							orderlistbean.setADULT_NUM(rs.getInt("ADULTNUM"));
+							orderlistbean.setTOTALPRICE(rs.getInt("TOTALPRICE"));
+							orderlists.add(orderlistbean);
+							}
+						
+					} catch (SQLException e) {
+						e.printStackTrace();
+						throw new RuntimeException(e);
+					}
+					return orderlists;
+				}
 		
 		
 		

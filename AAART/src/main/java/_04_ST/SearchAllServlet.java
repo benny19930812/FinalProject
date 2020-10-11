@@ -65,7 +65,7 @@ public class SearchAllServlet extends HttpServlet {
 		response.setContentType(CONTENT_TYPE);
 		PrintWriter out = response.getWriter();
 
-		String query = "SELECT ACT_NO,ACT_TITLE,ACT_LOCATION_NAME FROM MAINTABLE " + "WHERE ACT_TITLE LIKE \'%" + queryVal + "%\'";
+		String query = "SELECT ACT_NO,ACT_TITLE,ACT_LOCATION_NAME,ACT_DESCRIPTION FROM MAINTABLE " + "WHERE ACT_TITLE LIKE \'%" + queryVal + "%\'";
 	
 		try {
 			Connection conn = ds.getConnection();
@@ -78,14 +78,15 @@ public class SearchAllServlet extends HttpServlet {
 					String no = rs.getString(1);
 					String title = rs.getString(2);
 					String site = rs.getString(3);
-					System.out.println(no);
-					System.out.println(title);		
-					System.out.println(site);		
+					String description = rs.getString(4);
+					
+	
 				
 					Map map = new HashMap(); 
 					map.put("no", no);			
 					map.put("title", title);		
 					map.put("site", site);		
+					map.put("description", description);		
 
 					
 //					用键值对存入到map集合中

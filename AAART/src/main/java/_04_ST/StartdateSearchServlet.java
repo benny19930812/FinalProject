@@ -73,6 +73,7 @@ public class StartdateSearchServlet extends HttpServlet {
 				String dateString = showOj.getACT_START_DATE();
 				int noint = showOj.getACT_NO();
 				String titleString = showOj.getACT_TITLE();
+				String description = showOj.getACT_DESCRIPTION();
 				String siteString = showOj.getACT_LOCATION_NAME();
 				Date date;
 				date = sdf.parse(dateString);
@@ -83,6 +84,7 @@ public class StartdateSearchServlet extends HttpServlet {
 					map.put("no", noint);
 					map.put("title", titleString);
 					map.put("site", siteString);
+					map.put("description", description);
 					map.put("date", dateFormat.format(date));
 
 					// 存入map集合中

@@ -58,7 +58,7 @@
                 </ul>
                 <ul>
                     <li id="cart"" class=" nav2">
-                    	<a href="<c:url value='/_04_ShopCart/04_Shopcart.jsp'/>" target="" title="">購物車</a>
+                    	<a href="<c:url value='/_04_ShopCart/_04_ShoppingCart.jsp'/>" target="" title="">購物車</a>
                     </li>
                     <li id="login" class="nav2">
                         <a href="<c:url value='/_04_register/register.jsp'/>" target="" title="">註冊</a>

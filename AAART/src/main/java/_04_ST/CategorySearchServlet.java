@@ -58,7 +58,7 @@ public class CategorySearchServlet extends HttpServlet {
 				int noint = showOj.getACT_NO();
 				String titleString = showOj.getACT_TITLE();
 				String siteString = showOj.getACT_LOCATION_NAME();
-				String descripString = showOj.getACT_DESCRIPTION();
+				String description = showOj.getACT_DESCRIPTION();
 
 				if (queryCate.equals(category)) {
 //					System.out.println(noint);
@@ -69,7 +69,7 @@ public class CategorySearchServlet extends HttpServlet {
 					map.put("no", noint);
 					map.put("title", titleString);
 					map.put("site", siteString);
-					map.put("descrip", descripString);
+					map.put("description", description);
 					// 存入map集合中
 //					System.out.println(map);
 					list.add(map);// 將map集合放入list集合

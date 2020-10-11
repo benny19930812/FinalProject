@@ -34,65 +34,115 @@ public class OrIdSearchServlet extends HttpServlet {
 			throw new ServletException(ne);
 		}
 	}
+	
 
-//	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//	}
+
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		List<Map> orderlist = new ArrayList<Map>();
+		List<Map> orderlist2 = new ArrayList<Map>();
 		response.setContentType(CONTENT_TYPE);
 		PrintWriter out = response.getWriter();
 		try {
 			String queryVal = request.getParameter("orderid");
 
-			OrderListDAO orderListDAO = new OrderListDAO();
-			List<Orderlistbean> orderlists = orderListDAO.GetOrderlist();
-			for (Orderlistbean orderlistbean  : orderlists ) {
-				String orderid =orderlistbean.getORDERID();
-				String name = orderlistbean.getNAME();
-				String email = orderlistbean.getEMAIL();
-				String tel = orderlistbean.getTEL();
-				String address = orderlistbean.getADDRESS();
-				String actid = orderlistbean.getACT_ID();
-				String title = orderlistbean.getTITLE();
-				int halfnum =orderlistbean.getHALF_NUM();
-				int adultnum = orderlistbean.getADULT_NUM();
-				int totalprice = orderlistbean.getTOTALPRICE();
-
-				if (queryVal.equals(orderid)) {
-//					System.out.println(noint);
-//					System.out.println(titleString);
-//					System.out.println(siteString);
-//					
-					Map map = new HashMap();
-					map.put("orderid", orderid);
-					map.put("name", name);
-					map.put("email", email);
-					map.put("tel", tel);
-					map.put("address", address);
-					map.put("title", title);
-					map.put("actid", actid);
-					map.put("halfnum", halfnum);
-					map.put("adultnum",adultnum);
-					map.put("totalprice", totalprice);
-					// 存入map集合中
-//					System.out.println(map);
-					orderlist.add(map);// 將map集合放入list集合
-//					System.out.println("放入集合");
-					for (Map map_1 : orderlist) {
-//						System.out.println(map_1);
-					}
-
-				}
-			}
-
-//			request.setAttribute("queryVal", queryVal);
-//			request.setAttribute("category", queryCate);
-//			request.setAttribute("site", querysite);
-//			request.setAttribute("startdate", querystartdate);
-//			request.setAttribute("enddate", queryenddate);
-		} catch (Exception e) {
+//			OrderListDAO orderListDAO = new OrderListDAO();
+//			List<Orderlistbean> orderlists = orderListDAO.GetOrderlist();
+//			for (Orderlistbean orderlistbean  : orderlists ) {
+//				String orderid =orderlistbean.getORDERID();
+//				String name = orderlistbean.getNAME();
+//				String email = orderlistbean.getEMAIL();
+//				String tel = orderlistbean.getTEL();
+//				String address = orderlistbean.getADDRESS();
+//				String actid = orderlistbean.getACT_ID();
+//				String title = orderlistbean.getTITLE();
+//				int halfnum =orderlistbean.getHALF_NUM();
+//				int adultnum = orderlistbean.getADULT_NUM();
+//				int totalprice = orderlistbean.getTOTALPRICE();
+//
+//				if (queryVal.equals(orderid)) {
+//	
+//					Map map = new HashMap();
+//					map.put("orderid", orderid);
+//					map.put("name", name);
+//					map.put("email", email);
+//					map.put("tel", tel);
+//					map.put("address", address);
+//					map.put("title", title);
+//					map.put("actid", actid);
+//					map.put("halfnum", halfnum);
+//					map.put("adultnum",adultnum);
+//					map.put("totalprice", totalprice);
+//					// 存入map集合中
+////					System.out.println(map);
+//					orderlist.add(map);// 將map集合放入list集合
+////					System.out.println("放入集合");
+//					for (Map map_1 : orderlist) {
+////						System.out.println(map_1);
+//					}
+	
+//			OrderListDAO orderListDAO = new OrderListDAO();
+//			List<Orderlistbean> orderusers = orderListDAO.GetOrderlist();
+//			for (Orderlistbean orderlistbean  : orderusers ) {
+//				String orderid =orderlistbean.getORDERID();
+//				String name = orderlistbean.getNAME();
+//				String email = orderlistbean.getEMAIL();
+//				String tel = orderlistbean.getTEL();
+//				String address = orderlistbean.getADDRESS();
+//				int totalprice = orderlistbean.getTOTALPRICE();
+//
+//				if (queryVal.equals(orderid)) {
+//	
+//					Map map = new HashMap();
+//					map.put("orderid", orderid);
+//					map.put("name", name);
+//					map.put("email", email);
+//					map.put("tel", tel);
+//					map.put("address", address);
+//					map.put("totalprice", totalprice);
+//					// 存入map集合中
+////					System.out.println(map);
+//					orderlist.add(map);// 將map集合放入list集合
+////					System.out.println("放入集合");
+//					for (Map map_1 : orderlist) {
+////						System.out.println(map_1);
+//					}	
+					
+					
+					
+					
+					
+//			
+//			
+//					List<Orderlistbean> orderlists = orderListDAO.GetOrderlist();
+//					for (Orderlistbean orderlistbean2  : orderlists ) {
+//						String orderid2 =orderlistbean.getORDERID();	
+//						String title = orderlistbean.getTITLE();
+//						int halfnum =orderlistbean.getHALF_NUM();
+//						int adultnum = orderlistbean.getADULT_NUM();
+//
+//
+//						if (queryVal.equals(orderid2)) {
+//			
+//							Map map2 = new HashMap();
+//							map2.put("orderid", orderid);
+//							map2.put("title", title);
+//							map2.put("halfnum", halfnum);
+//							map2.put("adultnum",adultnum);
+//
+//							// 存入map集合中
+////							System.out.println(map);
+//							orderlist2.add(map2);// 將map集合放入list集合
+////							System.out.println("放入集合");
+//							for (Map map_1 : orderlist) {
+////								System.out.println(map_1);
+//							}				
+					
+				
+			
+				
+			}catch (Exception e) {
 			// TODO: handle exception
 			int listsize = orderlist.size();
 			System.out.println("共" + listsize + "筆資料");
@@ -102,6 +152,6 @@ public class OrIdSearchServlet extends HttpServlet {
 		request.setAttribute("getorlist", orderlist);// 将list放入request中
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/_04_Orderlist/ShowOrderlist.jsp");
 		dispatcher.forward(request, response);
-
+		
 	}
 }

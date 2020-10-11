@@ -33,7 +33,7 @@ public class ClearCart extends HttpServlet {
 //	HttpSession session=request.getSession();
 //	Set<Map> cartlist = (Set<Map>) session.getAttribute("cartlist");	
 //	session.setAttribute("cartlist", cartlist);	
-	RequestDispatcher dispatcher = request.getRequestDispatcher("/_04_ST/04_Booking2.jsp");
+	RequestDispatcher dispatcher = request.getRequestDispatcher("/_04_ShopCart/_04_ShoppingCart.jsp");
 	dispatcher.forward(request, response);
 		
 		

@@ -20,16 +20,15 @@
 </head>
 
 <body>
-<form name="order2" action="<c:url value='/_04_Orderlist/OrderlistServlet'/> " method="get">
+<form name="order2" action="<c:url value='/_04_Orderlist/OrderlistServlet'/> " method="post">
 
 	<jsp:include page="/_04_ST/04_topbar.jsp" />
 <c:set var="name" value="${param.name}" scope="session"/> 
 <c:set var="email" value="${param.email}" scope="session"/> 
 <c:set var="tel" value="${param.tel}" scope="session"/> 
 <c:set var="add" value="${param.add}" scope="session"/> 
-    <H1>送出訂單</H1>
+    <H1>確認訂單資訊</H1>
     <table border="1">
-        ${name}
         <tr>
             <td>訂購人姓名
             </td>
@@ -69,22 +68,35 @@
             <td>總價</td>
             <td>操作</td>
         </tr>
+        
+         </tr>
+        <%--使用JSTL 執行for loop ${show.no}取map內value --%>
+        <c:forEach items="${cartlist}" var="show" varStatus="idx">
         <tr>
-            <td>${title}</td>
+       <!-- 傳送訂單資訊 -->
+       <form name="order" action="" method="get">
+		<tr>
+            <td>${show.title}</td>
             <td>全票</td>
-            <td>${adultnum}</td>
-            <td name="price" class="price" id="price" >1000</td>
-            <td name="total" id="total" class="total">${total}</td>
+            <td>${show.halfnum}</td>  
+           <td name="price" class="price" id="price" >1000</td>
+            <td>${show.total1}</td>
             <td ><input type="button" value="刪除" name="submit" class="submit" id="submit"></td>
-        </tr>
-        <tr>
-            <td>${title}</td>
+         </tr>
+         <tr>
+            <td>${show.title}</td>
             <td>半票</td>
-            <td>${halfnum}</td>
+            <td>${show.halfnum}</td>         
             <td name="price" class="price" id="price" >500</td>
-            <td name="total2" id="total2" class="total2">${total2}</td>
+            <td>${show.total2}</td>
+
             <td ><input type="button" value="刪除" name="submit" class="submit" id="submit"></td>
+
         </tr>
+			</form>
+			
+			
+		</c:forEach>       
         <tr><td>總計</td><td></td><td></td><td></td><td>${total3}</td><tr>
 
     </table><br>
