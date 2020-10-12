@@ -30,7 +30,7 @@ public class ShopCartServlet extends HttpServlet {
 	
 	String title = (String) request.getSession().getAttribute("title");
 	String  halfnum =  request.getParameter("halfnum");
-	String  adultnum =   request.getParameter("adultnum");
+	String  adultnum =  request.getParameter("adultnum");
 	int  total1 =    Integer.parseInt(request.getParameter("total1"));
 	//String轉型成 int以利計算
 	int  total2 =    Integer.parseInt(request.getParameter("total2"));

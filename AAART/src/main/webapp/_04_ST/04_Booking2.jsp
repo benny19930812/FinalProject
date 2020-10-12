@@ -46,7 +46,7 @@
 <c:set var="email" value="${param.email}" scope="session"/> 
 <c:set var="tel" value="${param.tel}" scope="session"/> 
 <c:set var="add" value="${param.add}" scope="session"/> 
-    <H1>送出訂單</H1>
+    <H1>訂購人資訊</H1>
  <table border="1">
         
         <tr>
@@ -103,7 +103,10 @@
             </td>
            <td name="price" class="price" id="price" >NT$1000</td>
             <td>NT$<input type="text" name="total1" id="total1" class="total1"value="${show.total1}" readonly="readonly" /></td>
-            <td ><input type="button" value="刪除" name="submit" class="submit" id="submit"></td>
+
+            <td >
+            <input type="button" value="修改" name="submit" class="submit" id="submit"  >
+            <input type="button" value="刪除" name="submit" class="submit" id="submit" onclick="<c:url value='/_04_ShopCart/DelectCart'/>" ></td>
          </tr>
       
          <tr>
@@ -117,7 +120,9 @@
             
             <td name="price" class="price" id="price" >NT$500</td>
             <td>NT$<input type="text" name="total2" id="total2" class="total2"value="${show.total2}" readonly="readonly" /></td>
-            <td ><input type="button" value="刪除" name="submit" class="submit" id="submit"></td>
+            <td >
+            <input type="button" value="修改" name="submit" class="submit" id="submit"  >
+            <input type="button" value="刪除" name="submit" class="submit" id="submit" onclick="<c:url value='/_04_ShopCart/DelectCart'/>"></td>
         </tr>
 			</form> 
 <!-- 		設定totalprice加總 -->

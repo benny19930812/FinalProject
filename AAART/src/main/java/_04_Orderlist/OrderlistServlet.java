@@ -37,6 +37,7 @@ public class OrderlistServlet extends HttpServlet {
 			ds = (DataSource) ctxt.lookup("java:comp/env/jdbc/xe"); // for Oracle DB
 			System.out.println("DB連接成功");
 		} catch (NamingException ne) {
+			System.out.println("NamingException");
 			throw new ServletException(ne);
 		}
 	}
@@ -49,8 +50,8 @@ public class OrderlistServlet extends HttpServlet {
 			String EMAIL = (String) request.getSession().getAttribute("email");
 			String TEL = (String) request.getSession().getAttribute("tel");
 			String ADDRESS = (String) request.getSession().getAttribute("add");
-			int totalprice =  (int)request.getSession().getAttribute("totalprice");
-			
+			int totalprice = Integer.parseInt( (String) request.getSession().getAttribute("totalprice"));
+			System.out.println(totalprice );
 			
 			
 			OrderListDAO orderListDAO =new OrderListDAO();
@@ -58,6 +59,7 @@ public class OrderlistServlet extends HttpServlet {
 			
 			Orderlistbean orderlist = new Orderlistbean();
 			//建立orderlist物件
+			
 			String ORDERID =orderListDAO.getOrderIdByTime();
 			//建立物件 . 來調用方法
 			
@@ -66,53 +68,29 @@ public class OrderlistServlet extends HttpServlet {
 			orderlist.setEMAIL(EMAIL);
 			orderlist.setTEL(TEL);
 			orderlist.setADDRESS(ADDRESS);
+			orderlist.setTOTALPRICE(totalprice);
 			orderListDAO.addUser(orderlist);
-			System.out.println("商品");
 
 			
 
 			
 			HashSet<HashMap>  cartlist =(HashSet<HashMap>) request.getSession().getAttribute("cartlist");
 			for (HashMap carmap : cartlist) {		
-				
 				String title = (String) carmap.get("title");	
-				//carmap.get("halfnum")取得為string用Integer.parseInt轉型為int
-				int halfnum = (int) carmap.get("halfnum");	
-				int adultnum =(int)carmap.get("adultnum");	
-				int total1 =  (int) carmap.get("total1");	
-				int total2 =  (int) carmap.get("total2");	
-					
-				
-//				int halfnum = Integer.parseInt((String) carmap.get("halfnum"));	
-//				int adultnum =  Integer.parseInt((String) carmap.get("adultnum"));	
-////				int total1 = Integer.parseInt((String) carmap.get("total1"));	
-////				int total2 = Integer.parseInt((String) carmap.get("total2"));	
-//				int totalprice = Integer.parseInt((String) carmap.get("totalprice"));				
+				int halfnum =Integer.parseInt( (String) carmap.get("halfnum"));					
+				System.out.println(" halfnum");
+				int adultnum =Integer.parseInt( (String)carmap.get("adultnum"));	
+//				int total1 =  (int)carmap.get("total1");	
+//				int total2 =  (int)carmap.get("total2");	
+	
 				Orderlistbean orderlist2 = new Orderlistbean();
 				orderlist2.setORDERID(ORDERID);
 				orderlist2.setTITLE(title);
 				orderlist2.setHALF_NUM(halfnum);
 				orderlist2.setADULT_NUM(adultnum);
-				orderlist2.setTOTALPRICE(totalprice);
 				orderListDAO.addlist(orderlist2);
 						
 			}
-
-//			String TITLE = cartlist.
-//			int HALF_NUM = Integer.parseInt((String) request.getSession().getAttribute("halfnum"));			
-//			int ADULT_NUM = Integer.parseInt((String) request.getSession().getAttribute("adultnum"));
-//			int TOTALPRICE = Integer.parseInt((String) request.getSession().getAttribute("total3"));
-	
-//			//建立orderListDAO物件
-//			Orderlistbean orderlist2 = new Orderlistbean();
-//			//建立orderlist物件
-//			
-//			orderlist2.setORDERID(ORDERID);
-//			orderlist2.setTITLE(TITLE);
-//			orderlist2.setHALF_NUM(HALF_NUM);
-//			orderlist2.setADULT_NUM(ADULT_NUM);
-//			orderlist2.setTOTALPRICE(TOTALPRICE);
-//			orderListDAO.addlist(orderlist2);
 			
 			PrintWriter out = response.getWriter();
 	        System.out.println("訂單已成立");
@@ -131,7 +109,7 @@ public class OrderlistServlet extends HttpServlet {
 		}	
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/_04_Orderlist/ThxOrder.jsp");
 		dispatcher.forward(request, response);
-		
+//		
 	}
 //	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		response.setContentType(CONTENT_TYPE);

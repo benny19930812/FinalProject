@@ -35,7 +35,7 @@
 		    }
         .nav2{
             float: right;
-            color: #FFFFFF;        
+            color: #F5F1E3;        
             border-radius: 10px;
             list-style-type: none;
             font-size: 30px;
@@ -75,7 +75,8 @@
                     </li>
                     <li id="category2" class="nav">
                        分類
-                    </li>
+                    </li>                  
+
                     <li id="" class="nav">
                        找薏仁
                     </li>
@@ -89,6 +90,8 @@
                     <li id="" class="nav">
                        租場地
                     </li>
+                    
+                    
                     
                 </ul>
                 <ul>

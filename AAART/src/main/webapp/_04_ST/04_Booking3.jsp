@@ -43,7 +43,7 @@
 <c:set var="email" value="${param.email}" scope="session"/> 
 <c:set var="tel" value="${param.tel}" scope="session"/> 
 <c:set var="add" value="${param.add}" scope="session"/> 
-<c:set var="totalprice" value="${param.total3}" /> 
+<c:set var="totalprice" value="${param.total3}" scope="session"/> 
     <H1>確認訂單資訊</H1>
     <table border="1">
         <tr>
@@ -83,7 +83,7 @@
             <td>數量</td>
             <td>價格</td>
             <td class="price2">總價</td>
-            <td>操作</td>
+           
         </tr>
         
          </tr>
@@ -98,7 +98,7 @@
             <td>${show.halfnum}</td>  
            <td name="price" class="price" id="price" >1000</td>
             <td>${show.total1}</td>
-            <td ><input type="button" value="刪除" name="submit" class="submit" id="submit" ></td>
+           
          </tr>
          <tr>
          
@@ -109,9 +109,6 @@
             <td>${show.halfnum}</td>         
             <td name="price" class="price" id="price" >500</td>
             <td>${show.total2}</td>
-
-            <td ><input type="button" value="刪除" name="submit" class="submit" id="submit"></td>
-
         </tr>
 			</form>
 			
@@ -121,6 +118,7 @@
 
     </table><br>
     </form>
+          <input type="button" value="修改訂單" name="" class="" id="" onclick="history.back()">  
           <input type="submit" value="送出訂單" name="1" class="1" id="1">  
      
 
@@ -134,7 +132,6 @@
 
     $("#1").click(function () {
     	if (confirm("再次確認訂單內容 ? ")) {
-//     		window.location ="./_04_Orderlist/OrderlistServlet" 
     		window.location ="<c:url value='/_04_Orderlist/OrderlistServlet'/>" 
     	} else {
     		return false;

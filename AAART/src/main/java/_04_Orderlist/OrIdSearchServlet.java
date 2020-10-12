@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import _04_Orderlist.*;
 
-@WebServlet("/_04_Orderlist/OrIdSearchServlet2")
+@WebServlet("/_04_Orderlist/OrIdSearchServlet")
 public class OrIdSearchServlet extends HttpServlet {
 
 	private static final String CONTENT_TYPE = "text/html; charset=utf-8";

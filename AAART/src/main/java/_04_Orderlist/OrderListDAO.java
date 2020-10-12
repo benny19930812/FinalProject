@@ -73,7 +73,7 @@ public class OrderListDAO {
 	public Orderlistbean addlist(Orderlistbean orderlistbean) {
 		
 		System.out.println("進入方法");
-		String liString = "INSERT INTO ORDERNUM (ORDERID,TITLE,HALFNUM,ADULTNUM,TOTALPRICE) VALUES (?,?,?,?,?)";
+		String liString = "INSERT INTO ORDERNUM (ORDERID,TITLE,HALFNUM,ADULTNUM) VALUES (?,?,?,?)";
 		try (
 				Connection conn = getDataSource().getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(liString);
@@ -82,9 +82,8 @@ public class OrderListDAO {
 				pstmt.setString(2, orderlistbean.getTITLE());
 				pstmt.setInt(3, orderlistbean.getHALF_NUM());
 				pstmt.setInt(4, orderlistbean.getADULT_NUM());
-				pstmt.setInt(5, orderlistbean.getTOTALPRICE());
 				pstmt.executeUpdate();
-				System.out.println("已插入");
+				System.out.println("已插入2");
 				return orderlistbean;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -137,7 +136,6 @@ public class OrderListDAO {
 							orderlistbean.setTITLE(rs.getString("TITLE"));
 							orderlistbean.setHALF_NUM(rs.getInt("HALFNUM"));
 							orderlistbean.setADULT_NUM(rs.getInt("ADULTNUM"));
-							orderlistbean.setTOTALPRICE(rs.getInt("TOTALPRICE"));
 							orderlists.add(orderlistbean);
 							}
 						
