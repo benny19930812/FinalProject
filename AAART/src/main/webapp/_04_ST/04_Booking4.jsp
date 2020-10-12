@@ -39,7 +39,7 @@
 </head>
 
 <body>
-<%-- <form name="order2" action="<c:url value='/_04_ST/04_Booking3.jsp'/> " method="get"> --%>
+<form name="order2" action="<c:url value='/_04_ST/04_Booking3.jsp'/> " method="get">
 
 <jsp:include page="/_04_ST/04_topbar.jsp" />
 <c:set var="name" value="${param.name}" scope="session"/> 
@@ -107,9 +107,6 @@
 
             <td >
             <input type="button" value="修改" name="submit" class="submit" id="submit"  >
-    	 <form name="order" action="<c:url value='/_04_ShopCart/Delect'/>" method="POST">
-         <input type="submit" value="刪除測試" name="clear" class="clear" id="clear"> 
-    	 </form>
     	 
             <input type="button" value="刪除" name="submit" class="submit" id="submit"  ></td>
          </tr>

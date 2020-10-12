@@ -131,8 +131,8 @@
     <script>
 
     $("#1").click(function () {
-    	if (confirm("再次確認訂單內容 ? ")) {
-    		window.location ="<c:url value='/_04_Orderlist/OrderlistServlet'/>" 
+    	if (confirm("確認刪除? ")) {
+    		window.location ="<c:url value='/_04_ShopCart/DelectCart'/>" 
     	} else {
     		return false;
     	}
