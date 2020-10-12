@@ -8,7 +8,7 @@
 </head>
 <body>
 <%-- <form name="order" action="<c:url value='/_04_Orderlist/OrIdSearchServlet'/>" method="get" > --%>
-<form name="order" action="./OrIdSearchServlet2" method="get" >
+<form name="order" action="./OrIdSearchServlet" method="get" >
 <jsp:include page="/_04_ST/04_topbar.jsp" />
 請輸入訂單編號
 <input type="text" name="orderid">

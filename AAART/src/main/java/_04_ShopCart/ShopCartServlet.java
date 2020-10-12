@@ -8,7 +8,6 @@ import java.util.Set;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,9 +31,10 @@ public class ShopCartServlet extends HttpServlet {
 	String title = (String) request.getSession().getAttribute("title");
 	String  halfnum =  request.getParameter("halfnum");
 	String  adultnum =   request.getParameter("adultnum");
-	String  total1 =   request.getParameter("total1");
-	String  total2 =   request.getParameter("total2");
-	String  totalprice =   request.getParameter("total3");
+	int  total1 =    Integer.parseInt(request.getParameter("total1"));
+	//String轉型成 int以利計算
+	int  total2 =    Integer.parseInt(request.getParameter("total2"));
+	int  totalprice =   Integer.parseInt( request.getParameter("total3"));
 
 System.out.println(total1);
 System.out.println(total2);

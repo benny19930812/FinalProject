@@ -10,6 +10,21 @@
 		.page li{
 		display:inline;
 		}
+		.no{
+		width: 30px;
+		}
+		.title{
+		width: 800px;
+		}
+		.site{
+		width: 200px;
+		}
+		.date{
+		width: 100px;
+		}
+		.buy{
+		width: 10px;
+		}
     </style>
 </head>
 <body>
@@ -22,18 +37,15 @@
     <c:set var="endIndex" value="${requestScope.endIndex}"/>
     <c:set var="page" value="${requestScope.page}"/>
     <c:set var="currentPage" value="${requestScope.key_list.subList(beginIndex,endIndex)}"/>
-    <p>總筆數:${totalnum}</p>
-    <p>每頁筆數:${PerPage}</p>
-    <p>總頁數:${totalPages}</p>
-    <p>第幾頁:${page}</p>
+    <p>總筆數:${totalnum}</p><p>每頁筆數:${PerPage}</p><p>總頁數:${totalPages}</p><p>第幾頁:${page}</p>
 
     <table border="1">
         <tr>
-            <th>編號</th>
-            <th>節目名稱</th>
-            <th>場地</th>
-            <th>日期</th>
-            <th>購買</th>    
+            <th class="no">編號</th>
+            <th class="title">節目名稱</th>
+            <th class="site">場地</th>
+            <th class="date">日期</th>
+            <th class="buy">購買</th>    
         </tr>
 
 <%--使用JSTL 執行for loop ${show.no}取map內value --%>

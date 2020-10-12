@@ -49,14 +49,12 @@ public class OrderlistServlet extends HttpServlet {
 			String EMAIL = (String) request.getSession().getAttribute("email");
 			String TEL = (String) request.getSession().getAttribute("tel");
 			String ADDRESS = (String) request.getSession().getAttribute("add");
-
+			int totalprice =  (int)request.getSession().getAttribute("totalprice");
 			
 			
 			
 			OrderListDAO orderListDAO =new OrderListDAO();
 			//建立orderListDAO物件
-			
-			System.out.println("here");
 			
 			Orderlistbean orderlist = new Orderlistbean();
 			//建立orderlist物件
@@ -70,31 +68,26 @@ public class OrderlistServlet extends HttpServlet {
 			orderlist.setADDRESS(ADDRESS);
 			orderListDAO.addUser(orderlist);
 			System.out.println("商品");
-//			System.out.println(cartmap);
+
 			
-			
-			
-			
-			
+
 			
 			HashSet<HashMap>  cartlist =(HashSet<HashMap>) request.getSession().getAttribute("cartlist");
-			for (HashMap carmap : cartlist) {
-
-				System.out.println(carmap.get("title"));	
-				System.out.println(carmap.get("halfnum"));	
-				System.out.println(carmap.get("adultnum"));	
-				System.out.println(carmap.get("total1"));	
-				System.out.println(carmap.get("total2"));	
-				System.out.println(carmap.get("totalprice"));
-				
+			for (HashMap carmap : cartlist) {		
 				
 				String title = (String) carmap.get("title");	
 				//carmap.get("halfnum")取得為string用Integer.parseInt轉型為int
-				int halfnum = Integer.parseInt((String) carmap.get("halfnum"));	
-				int adultnum =  Integer.parseInt((String) carmap.get("adultnum"));	
-//				int total1 = Integer.parseInt((String) carmap.get("total1"));	
-//				int total2 = Integer.parseInt((String) carmap.get("total2"));	
-				int totalprice = Integer.parseInt((String) carmap.get("totalprice"));				
+				int halfnum = (int) carmap.get("halfnum");	
+				int adultnum =(int)carmap.get("adultnum");	
+				int total1 =  (int) carmap.get("total1");	
+				int total2 =  (int) carmap.get("total2");	
+					
+				
+//				int halfnum = Integer.parseInt((String) carmap.get("halfnum"));	
+//				int adultnum =  Integer.parseInt((String) carmap.get("adultnum"));	
+////				int total1 = Integer.parseInt((String) carmap.get("total1"));	
+////				int total2 = Integer.parseInt((String) carmap.get("total2"));	
+//				int totalprice = Integer.parseInt((String) carmap.get("totalprice"));				
 				Orderlistbean orderlist2 = new Orderlistbean();
 				orderlist2.setORDERID(ORDERID);
 				orderlist2.setTITLE(title);
@@ -124,7 +117,12 @@ public class OrderlistServlet extends HttpServlet {
 			PrintWriter out = response.getWriter();
 	        System.out.println("訂單已成立");
 	        
-			
+	    	
+	    	request.getSession().invalidate();
+	        
+	    	System.out.println("清除session");
+	        
+	        
 	        request.setAttribute("orderid", ORDERID);
 
 			

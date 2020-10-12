@@ -16,6 +16,22 @@
         .orderNum {
             width: 30px;
         }
+        .title{
+         width:200px;
+        }
+        .total1{
+        width: 120px;
+        }
+        .total2{
+        width: 120px;
+        }
+        .totalprice{
+        width: 120px;
+        }
+        
+        .price2{
+        width:200px;
+        }
     </style>
 </head>
 
@@ -27,6 +43,7 @@
 <c:set var="email" value="${param.email}" scope="session"/> 
 <c:set var="tel" value="${param.tel}" scope="session"/> 
 <c:set var="add" value="${param.add}" scope="session"/> 
+<c:set var="totalprice" value="${param.total3}" /> 
     <H1>確認訂單資訊</H1>
     <table border="1">
         <tr>
@@ -61,11 +78,11 @@
       <table border="1">  
         
         <tr>
-            <td>節目名稱</td>
+            <td class="title">節目名稱</td>
             <td>票種</td>
             <td>數量</td>
             <td>價格</td>
-            <td>總價</td>
+            <td class="price2">總價</td>
             <td>操作</td>
         </tr>
         
@@ -81,9 +98,12 @@
             <td>${show.halfnum}</td>  
            <td name="price" class="price" id="price" >1000</td>
             <td>${show.total1}</td>
-            <td ><input type="button" value="刪除" name="submit" class="submit" id="submit"></td>
+            <td ><input type="button" value="刪除" name="submit" class="submit" id="submit" ></td>
          </tr>
          <tr>
+         
+     
+         
             <td>${show.title}</td>
             <td>半票</td>
             <td>${show.halfnum}</td>         
@@ -97,12 +117,13 @@
 			
 			
 		</c:forEach>       
-        <tr><td>總計</td><td></td><td></td><td></td><td>${total3}</td><tr>
+        <tr><td>總計</td><td></td><td></td><td></td><td>${totalprice}</td><tr>
 
     </table><br>
     </form>
           <input type="submit" value="送出訂單" name="1" class="1" id="1">  
-         
+     
+
     
 <!-- <script src="js\jquery-3.5.1.min.js"></script> -->
  <script src="https://code.jquery.com/jquery-3.5.1.js"

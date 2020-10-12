@@ -8,6 +8,10 @@
 <title>Insert title here</title>
 </head>
 <style>
+		body{
+		margin:0px;
+		padding:0px;
+		}
         .topbar {
             background-color: #1B9AAA;
             height: 60px;
@@ -15,50 +19,84 @@
             padding: 0px;
         }
 
-        .nav{
-            background-color: #DDDBCB;
+        .nav{            
             float: left;
-            color: #050505;        
+            color: #FFFFFF;    
             border-radius: 10px;
             list-style-type: none;
             font-size: 30px;
             margin: 10px;
             font-family: Microsoft JhengHei;
             
-            
         }
+        .nav:hover{
+		background-color: #DDDBCB;
+		color:#000000;
+		    }
         .nav2{
-            background-color: #DDDBCB;
             float: right;
-            color: #050505;        
+            color: #FFFFFF;        
             border-radius: 10px;
             list-style-type: none;
             font-size: 30px;
             margin: 10px;
             font-family: Microsoft JhengHei;
         }
+         .nav2:hover{
+		background-color: #DDDBCB;
+		color:#1B9AAA
+		    }
+	
+		a:link {
+		color:#FFFFFF;
+		text-decoration:none;
+		}
+		a:visited {
+		color:#FFFFFF;
+		text-decoration:none;
+		}
+		a:hover {
+		color:#000000;
+		text-decoration:none;
+		}
+
+
 
         
-        </style>
+</style>
 <body>
 
 <header id="topbar" class="topbar">
             <nav>
                   <ul >
                     <li id="index"" class=" nav">
-                       <a href="<c:url value='/_04_ST/04_index.jsp'/>" target="" title="">首頁</a>
+                       <a href="<c:url value='/_04_ST/04_index.jsp'/>" target="" title="" class="aa">首頁</a>
                        
                     </li>
                     <li id="category2" class="nav">
                        分類
                     </li>
-                    <li id="order" class="nav">
-                       <a href="<c:url value='/_04_Orderlist/SearchOrderlist.jsp'/>" target="" title="">訂單</a>
+                    <li id="" class="nav">
+                       找薏仁
                     </li>
+                    <li id="" class="nav">
+                       找商店
+                    </li>
+                    <li id="" class="nav">
+                       找商品
+                    </li>
+                    </li>
+                    <li id="" class="nav">
+                       租場地
+                    </li>
+                    
                 </ul>
                 <ul>
                     <li id="cart"" class=" nav2">
                     	<a href="<c:url value='/_04_ShopCart/_04_ShoppingCart.jsp'/>" target="" title="">購物車</a>
+                    </li>
+                    <li id="order" class="nav2">
+                       <a href="<c:url value='/_04_Orderlist/SearchOrderlist.jsp'/>" target="" title="">訂單</a>
                     </li>
                     <li id="login" class="nav2">
                         <a href="<c:url value='/_04_register/register.jsp'/>" target="" title="">註冊</a>
@@ -70,6 +108,8 @@
                 </ul>
             </nav>
         </header><br>
+        
+
 <!-- bootstrap匯入       -->
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script> -->

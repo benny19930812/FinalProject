@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>購物車</title>
+    <title>h65456購物車</title>
     <style>
         td {
             width: 100px;
@@ -82,10 +82,11 @@
 		</c:forEach>
 <tr><td>總計</td><td></td><td></td><td></td><td><input type="text" name="total3" id="total3" class="total3"value="0" readonly="readonly" /></td><tr>
    </table>     
+          <input type="submit" value="111繼續購票" name="1" class="1" id="1">  
+          </form>
    		<form name="order" action="<c:url value='/_04_ShopCart/ClearCart'/>" method="POST">
           <input type="submit" value="全部清除" name="clear" class="clear" id="clear"> 
     	 </form>
-          <input type="submit" value="繼續購票" name="1" class="1" id="1">  
          
     
 <!-- <script src="js\jquery-3.5.1.min.js"></script> -->

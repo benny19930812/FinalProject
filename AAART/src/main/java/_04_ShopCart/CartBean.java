@@ -42,13 +42,14 @@ public class CartBean implements Serializable{
 	public void setTotal2(int total2) {
 		this.total2 = total2;
 	}
-	public int getTotal3() {
-		return total3;
+	public int getTotalprice() {
+		return totalprice;
 	}
-	public void setTotal3(int total3) {
-		this.total3 = total3;
+	public void setTotalprice(int totalprice) {
+		this.totalprice = totalprice;
 	}
-	private int total3;
+	private int totalprice;
+
 
 		
 
