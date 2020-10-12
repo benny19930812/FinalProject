@@ -12,10 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class DelectCart
- */
-@WebServlet("/DelectCart")
+
+@WebServlet("/_04_ShopCart/DelectCart")
 public class DelectCart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -24,19 +22,15 @@ public class DelectCart extends HttpServlet {
 		
 		
 		HashSet<HashMap>  cartlist =(HashSet<HashMap>) request.getSession().getAttribute("cartlist");
-		Map cartmap =new HashMap();
-		cartmap.remove("title"); 
-		
-//		System.out.println(cartmap);
-//		cartlist.add(cartmap);// 將map集合放入list集合
-//		System.out.println("放入集合");
-//		for (Map map_1 : cartlist) {
-//			System.out.println(map_1);
-//		}	
-//		
-//		
-//		session.setAttribute("cartlist", cartlist);// 将list放入request中
+		for (HashMap carmap : cartlist) {	
+			carmap.remove("title");
+			carmap.remove("halfnum");
+			carmap.remove("adultnum");
+			carmap.remove("total1");
+			carmap.remove("total2");
+		}
 
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/_04_ShopCart/_04_ShoppingCart.jsp");
 		dispatcher.forward(request, response);		
 		

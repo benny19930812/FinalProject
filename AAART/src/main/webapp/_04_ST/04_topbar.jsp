@@ -25,7 +25,7 @@
             border-radius: 10px;
             list-style-type: none;
             font-size: 30px;
-            margin: 10px;
+            margin: 5px;
             font-family: Microsoft JhengHei;
             
         }
@@ -39,7 +39,7 @@
             border-radius: 10px;
             list-style-type: none;
             font-size: 30px;
-            margin: 10px;
+            margin: 5px;
             font-family: Microsoft JhengHei;
         }
          .nav2:hover{
@@ -81,14 +81,17 @@
                        找薏仁
                     </li>
                     <li id="" class="nav">
-                       找商店
+                       藝好店
                     </li>
                     <li id="" class="nav">
-                       找商品
+                       得藝洋行
                     </li>
                     </li>
                     <li id="" class="nav">
-                       租場地
+                       租藝場
+                    </li>
+                    <li id="" class="nav">
+                      上藝課
                     </li>
                     
                     

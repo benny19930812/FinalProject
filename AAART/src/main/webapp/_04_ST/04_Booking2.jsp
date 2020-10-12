@@ -79,7 +79,6 @@
      </table><br><br> <br>  
 
       <table border="1">  
-        
         <tr>
             <td class="title">節目名稱</td>
             <td>票種</td>
@@ -106,7 +105,7 @@
 
             <td >
             <input type="button" value="修改" name="submit" class="submit" id="submit"  >
-            <input type="button" value="刪除" name="submit" class="submit" id="submit" onclick="<c:url value='/_04_ShopCart/DelectCart'/>" ></td>
+            <input type="button" value="刪除" name="submit" class="submit" id="submit"  ></td>
          </tr>
       
          <tr>
@@ -136,6 +135,9 @@
     	 </form>
    		<form name="order" action="<c:url value='/_04_ShopCart/ClearCart'/>" method="POST">
           <input type="submit" value="全部清除" name="clear" class="clear" id="clear"> 
+    	 </form>
+   		<form name="order" action="<c:url value='/_04_ShopCart/DelectCart'/>" method="POST">
+          <input type="submit" value="刪除測試" name="clear" class="clear" id="clear"> 
     	 </form>
 
     
